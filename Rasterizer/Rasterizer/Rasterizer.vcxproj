@@ -139,7 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ImageUtil.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="Rasterizer.cpp" />
+    <ClCompile Include="RenderUtils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeomData.h" />
+    <ClInclude Include="Geometry.h" />
+    <ClInclude Include="ImageUtil.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="RenderUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
