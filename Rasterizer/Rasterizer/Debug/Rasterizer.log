@@ -1,5 +1,8 @@
-﻿  ImageUtil.cpp
-E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\ImageUtil.cpp(35,18): warning C4244: '=': conversion from 'float' to 'unsigned char', possible loss of data
-E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\ImageUtil.cpp(36,18): warning C4244: '=': conversion from 'float' to 'unsigned char', possible loss of data
-E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\ImageUtil.cpp(37,18): warning C4244: '=': conversion from 'float' to 'unsigned char', possible loss of data
+﻿  Rasterizer.cpp
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(38,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(90,21): warning C4018: '<': signed/unsigned mismatch
+  RenderUtils.cpp
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(38,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(90,21): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Rasterizer.vcxproj -> E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Debug\Rasterizer.exe
