@@ -6,7 +6,7 @@
 #include "GeomData.h"
 
 class GeomUtils {
-
+public:
 	GeomUtils() {}
 	~GeomUtils() {}
 

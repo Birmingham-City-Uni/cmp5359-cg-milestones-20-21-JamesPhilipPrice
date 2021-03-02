@@ -19,9 +19,9 @@ Image::~Image()
 
 void Image::SetPixel(int _x, int _y, RGB _c)
 {
-	std::cout << "Setting pixel at: " << (_y * width) + _x << std::endl;
-	std::cout << "Pixels length: " << (width * height) << std::endl;
-	pixels[(_y * width) + _x] = _c;
+	if (_x >= 0 && _x < width && _y >= 0 && _y < height) {
+		pixels[(_y * width) + _x] = _c;
+	}
 }
 
 void Image::WriteImage(const char* _filename)
