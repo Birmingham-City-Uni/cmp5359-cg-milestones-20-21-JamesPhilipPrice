@@ -1,5 +1,16 @@
-﻿  Rasterizer.cpp
+﻿  Model.cpp
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(38,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(90,21): warning C4018: '<': signed/unsigned mismatch
+  Rasterizer.cpp
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(38,21): warning C4018: '<': signed/unsigned mismatch
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(90,21): warning C4018: '<': signed/unsigned mismatch
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Rasterizer.cpp(23,23): warning C4018: '<': signed/unsigned mismatch
+  RenderUtils.cpp
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(38,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(90,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(27,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(27,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(30,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(30,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   Rasterizer.vcxproj -> E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Debug\Rasterizer.exe

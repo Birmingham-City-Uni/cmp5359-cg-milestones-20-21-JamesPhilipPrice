@@ -1,6 +1,7 @@
 #pragma once
 #include "Geometry.h"
 #include "ImageUtil.h"
+#include "GeometryCore.h"
 
 class RenderUtils {
 public:

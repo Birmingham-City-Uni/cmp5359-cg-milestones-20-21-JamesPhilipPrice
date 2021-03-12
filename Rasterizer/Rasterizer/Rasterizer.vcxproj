@@ -145,8 +145,10 @@
     <ClCompile Include="RenderUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="GeomData.h" />
     <ClInclude Include="Geometry.h" />
+    <ClInclude Include="GeometryCore.h" />
     <ClInclude Include="ImageUtil.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="RenderUtils.h" />
