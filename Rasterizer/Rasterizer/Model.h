@@ -60,9 +60,12 @@ public:
 			vec4f(0.0f, 0.0f, 0.0f, 1.0f)
 		);
 
+		modelMatrix.PrintDebugInfo();
+		std::cout << "Model" << std::endl;
+
 		//Concatonate rotation into the matrix if needed
 		//About X axis
-		if (rotation.x == 0) {
+		if (rotation.x != 0) {
 			modelMatrix.MatrixMultiply(
 				mat4(
 					vec4f(1.0f, 0.0f, 0.0f, 0.0f),
@@ -74,7 +77,7 @@ public:
 		}
 
 		//About Y axis
-		if (rotation.y == 0) {
+		if (rotation.y != 0) {
 			modelMatrix.MatrixMultiply(
 				mat4(
 					vec4f(cosf(rotation.y * PI / 180.0f), 0.0f, sinf(rotation.y * PI / 180.0f), 0.0f),
@@ -86,7 +89,7 @@ public:
 		}
 
 		//About Z axis
-		if (rotation.z == 0) {
+		if (rotation.z != 0) {
 			modelMatrix.MatrixMultiply(
 				mat4(
 					vec4f(cosf(rotation.z * PI / 180.0f), -sinf(rotation.z * PI / 180.0f), 0.0f, 0.0f),
@@ -96,8 +99,6 @@ public:
 				)
 			);
 		}
-		modelMatrix.PrintDebugInfo();
-		std::cout << "Model" << std::endl;
 		//By this point there should be a fully fleshed out model matrix
 		//Now just concatonate with the view matrix and return it
 		return modelMatrix.GetMatrixMultiply(*_viewMat);
