@@ -14,6 +14,9 @@ Model::Model(const char* _location, GeomUtils* _gUtil)
 	else {
 		std::cout << "Warning there were 0 verticies loaded!" << std::endl;
 	}
+	//Set transformation stuff to default values
+	scale = vec3f(1.0f, 1.0f, 1.0f);
+	position = vec3f(0.0f, 0.0f, -10.0f);
 	
 }
 

@@ -23,4 +23,10 @@ struct Vertex {
 		y *= _s;
 		z *= _s;
 	}
+
+	void operator += (float _v) {
+		x += _v;
+		y += _v;
+		z += _v;
+	}
 };

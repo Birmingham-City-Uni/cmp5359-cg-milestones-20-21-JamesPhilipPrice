@@ -271,7 +271,20 @@ struct mat4 {
 		rowFour = _four;
 	}
 
-	mat4 MatrixMultiply(mat4 _mat) {
+	void MatrixMultiply(mat4 _mat) {
+		//Build temporary vertical slices of second matrix
+		vec4f vOne = vec4f(_mat.rowOne.x, _mat.rowTwo.x, _mat.rowThree.x, _mat.rowFour.x);
+		vec4f vTwo = vec4f(_mat.rowOne.y, _mat.rowTwo.y, _mat.rowThree.y, _mat.rowFour.y);
+		vec4f vThree = vec4f(_mat.rowOne.z, _mat.rowTwo.z, _mat.rowThree.z, _mat.rowFour.z);
+		vec4f vFour = vec4f(_mat.rowOne.w, _mat.rowTwo.w, _mat.rowThree.w, _mat.rowFour.w);
+
+		rowOne *= vOne;
+		rowTwo *= vTwo;
+		rowThree *= vThree;
+		rowFour *= vFour;
+	}
+
+	mat4 GetMatrixMultiply(mat4 _mat) {
 		//Build temporary vertical slices of second matrix
 		vec4f vOne = vec4f(_mat.rowOne.x, _mat.rowTwo.x, _mat.rowThree.x, _mat.rowFour.x);
 		vec4f vTwo = vec4f(_mat.rowOne.y, _mat.rowTwo.y, _mat.rowThree.y, _mat.rowFour.y);
@@ -293,5 +306,13 @@ struct mat4 {
 			rowThree.Dot(&_vec),
 			rowFour.Dot(&_vec)
 		);
+	}
+
+	void PrintDebugInfo() {
+		std::cout << "__________Matrix debug Info__________" << std::endl;
+		std::cout << rowOne.x << " " << rowOne.y << " " << rowOne.z << " " << rowOne.w << std::endl;
+		std::cout << rowTwo.x << " " << rowTwo.y << " " << rowTwo.z << " " << rowTwo.w << std::endl;
+		std::cout << rowThree.x << " " << rowThree.y << " " << rowThree.z << " " << rowThree.w << std::endl;
+		std::cout << rowFour.x << " " << rowFour.y << " " << rowFour.z << " " << rowFour.w << std::endl;
 	}
 };

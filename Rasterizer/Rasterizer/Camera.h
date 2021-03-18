@@ -4,7 +4,7 @@
 
 class Camera {
 public:
-	Camera(vec3f _pos, float _pitch, float _yaw, float _hFOV, float _ar) : position(_pos), pitch(_pitch), yaw(_yaw), horizontalFOV(_hFOV), aspectRatio(_ar) {
+	Camera(vec3f _pos, float _pitch, float _yaw, float _hFOV, float _ar, float _near, float _far) : position(_pos), pitch(_pitch), yaw(_yaw), horizontalFOV(_hFOV), aspectRatio(_ar), nearPlane(_near), farPlane(_far) {
 		verticalFOV = horizontalFOV * aspectRatio;
 	}
 	~Camera() {}
@@ -29,7 +29,19 @@ public:
 		return tempMat;
 	}
 
-	//To do get projection matrix out
+	mat4 GetProjectionMatrix() {
+		float tanHalfAlpha = tanf((verticalFOV / 2.0f) * PI / 180.0f);
+		float tanHalfBeta = tanf((horizontalFOV / 2.0f) * PI / 180.0f);
+
+		mat4 tempMat = mat4(
+			vec4f((float)1 / tanHalfBeta, 0.0f, 0.0f, 0.0f),
+			vec4f(0.0f, (float)1 / tanHalfAlpha, 0.0f, 0.0f),
+			vec4f(0.0f, 0.0f, (float)farPlane / (farPlane - nearPlane), 1.0f),
+			vec4f(0.0f, 0.0f, (float)(-farPlane * nearPlane) / (farPlane - nearPlane), 0.0f)
+		);
+
+		return tempMat;
+	}
 
 private:
 	//World position and orientation

@@ -24,6 +24,17 @@ void Image::SetPixel(int _x, int _y, RGB _c)
 	}
 }
 
+void Image::FlipVertical()
+{
+	for (int vPos = 0; vPos < height / 2; vPos++) {
+		for (int hPos = 0; hPos < width; hPos++) {
+			int topIndex = ((height - (vPos + 1)) * width) + hPos;
+			int bottomIndex = (vPos * width) + hPos;
+			std::swap(pixels[topIndex], pixels[bottomIndex]);
+		}
+	}
+}
+
 void Image::WriteImage(const char* _filename)
 {
 	if (width == 0 || height == 0) {

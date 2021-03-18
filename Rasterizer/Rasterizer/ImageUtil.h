@@ -19,6 +19,8 @@ public:
 
 	void SetPixel(int _x, int _y, RGB _c);
 
+	void FlipVertical();
+
 	void WriteImage(const char* _filename);
 
 private:
