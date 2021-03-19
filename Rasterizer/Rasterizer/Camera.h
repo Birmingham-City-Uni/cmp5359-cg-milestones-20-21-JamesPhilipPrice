@@ -5,7 +5,7 @@
 class Camera {
 public:
 	Camera(vec3f _pos, float _pitch, float _yaw, float _hFOV, float _ar, float _near, float _far) : position(_pos), pitch(_pitch), yaw(_yaw), horizontalFOV(_hFOV), aspectRatio(_ar), nearPlane(_near), farPlane(_far) {
-		verticalFOV = horizontalFOV / aspectRatio;
+		verticalFOV = horizontalFOV * aspectRatio;
 	}
 	~Camera() {}
 

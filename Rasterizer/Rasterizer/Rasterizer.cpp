@@ -6,8 +6,8 @@
 #include "RenderUtils.h"
 #include "Camera.h"
 
-#define WIDTH 1024
-#define HEIGHT 1024
+#define WIDTH 1920
+#define HEIGHT 1080
 
 void TransformModel(Model* _model, mat4* _modelviewMat, mat4* _projectionMat) {
     //Run through all verticies in the model
@@ -47,15 +47,17 @@ int main()
 
     Image* testImage = new Image(WIDTH, HEIGHT);
 
+    float aspect = (float)(1080.0f / 1920.0f);
+    std::cout << "aspect: " << (float)aspect << std::endl;
     //Important world stuff
     Camera* cam = new Camera(
-        vec3f(),
+        vec3f(0.0f, 0.0f, 0.0f),
         0.0f,
         0.0f,
         90.0f,
-        1.0f,
+        aspect,
         0.01f,
-        100.0f
+        2000.0f
     );
 
     std::cout << "Building matricies for camera and models" << std::endl;
@@ -77,6 +79,7 @@ int main()
     std::cout << "Rendering..." << std::endl;
     std::cout << "Face count: " << testModel->GetFaceCount() << std::endl;
     for (int v = 0; v < testModel->GetFaceCount(); v++) {
+        //std::cout << "Rendering face: " << v << std::endl;
         int index = v * 3;
         Vertex one = testModel->GetVertex(index);
         Vertex two = testModel->GetVertex(index+1);
@@ -84,9 +87,12 @@ int main()
         one += 1.0f;
         two += 1.0f;
         three += 1.0f;
-        one *= WIDTH / 2.0f;
-        two *= WIDTH / 2.0f;
-        three *= WIDTH / 2.0f;
+        one.x *= WIDTH / 2.0f;
+        one.y *= HEIGHT / 2.0f;
+        two.x *= WIDTH / 2.0f;
+        two.y *= HEIGHT / 2.0f;
+        three.x *= WIDTH / 2.0f;
+        three.y *= HEIGHT / 2.0f;
         renUtil->RenderLine(one, two, testImage);
         renUtil->RenderLine(two, three, testImage);
         renUtil->RenderLine(three, one, testImage);
