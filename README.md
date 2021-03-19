@@ -11,15 +11,27 @@ I because heavily inspired by my obsession with the Evangelion Movies and the Ne
 
 # Timeline
 ## 23/02/21 - Project start
-Initial visual studio project creation and upload of basic blender scene
+Initial visual studio project creation and upload of basic blender scene.
+
 ## 25/02/21 - Started work on Image class and colour struct
-Created the image class with the ability to write images and change pixel colours
+Created the image class with the ability to write images and change pixel colours.
+
 ## 26/02/21 - Progress on blender scene
-Worked on building models and putting stuff together
+Worked on building models and putting stuff together.
+
 ## 02/03/21 - Get the render utility class working on models
 Have a wireframe render of a testing model from module labs.
-Currently an issue with offsetting the model and need to look back into the vector transformations lectures and math support
+Currently an issue with offsetting the model and need to look back into the vector transformations lectures and math support.
 
 ## 03/03/21 - Got blender scene to a decent state
-I would be happy at this point to use this scene as-is and export it to render
+I would be happy at this point to use this scene as-is and export it to render.
 <img src="Renderings/Blender_Render_Cycles.png?raw=true"/>
+
+## 12/03/21 - Started to work on matricies
+I have begun to research into implementing matricies, vector2/3/4 and matrix transformations for manipulating models.
+
+## 18/03/21 - The matrix transformations have been mostly implemented
+There are some glaring bugs in the matrix transformations code that is making it impossible to render anything. I will look into this in tommorows lesson hopefully.
+
+## 19/03/21 - The bugs have been fixed
+The bugs in the matrix transformation code has been fixed and now models can ben rendered correctly.
