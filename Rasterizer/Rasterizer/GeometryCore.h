@@ -249,7 +249,7 @@ struct vec4f {
 	}
 
 	float Dot(vec4f* _v) {
-		return (x * _v->x + y * _v->y + z * _v->z + w * _v->w);
+		return ((x * _v->x) + (y * _v->y) + (z * _v->z) + (w * _v->w));
 	}
 };
 
@@ -278,10 +278,10 @@ struct mat4 {
 		vec4f vThree = vec4f(_mat.rowOne.z, _mat.rowTwo.z, _mat.rowThree.z, _mat.rowFour.z);
 		vec4f vFour = vec4f(_mat.rowOne.w, _mat.rowTwo.w, _mat.rowThree.w, _mat.rowFour.w);
 
-		rowOne *= vOne;
-		rowTwo *= vTwo;
-		rowThree *= vThree;
-		rowFour *= vFour;
+		rowOne = vec4f(rowOne.Dot(&vOne), rowOne.Dot(&vTwo), rowOne.Dot(&vThree), rowOne.Dot(&vFour));
+		rowTwo = vec4f(rowTwo.Dot(&vOne), rowTwo.Dot(&vTwo), rowTwo.Dot(&vThree), rowTwo.Dot(&vFour));
+		rowThree = vec4f(rowThree.Dot(&vOne), rowThree.Dot(&vTwo), rowThree.Dot(&vThree), rowThree.Dot(&vFour));
+		rowFour = vec4f(rowFour.Dot(&vOne), rowFour.Dot(&vTwo), rowFour.Dot(&vThree), rowFour.Dot(&vFour));
 	}
 
 	mat4 GetMatrixMultiply(mat4 _mat) {
@@ -292,10 +292,10 @@ struct mat4 {
 		vec4f vFour = vec4f(_mat.rowOne.w, _mat.rowTwo.w, _mat.rowThree.w, _mat.rowFour.w);
 
 		return mat4(
-			rowOne * vOne,
-			rowTwo * vTwo,
-			rowThree * vThree,
-			rowFour * vFour
+			vec4f(rowOne.Dot(&vOne), rowOne.Dot(&vTwo), rowOne.Dot(&vThree), rowOne.Dot(&vFour)),
+			vec4f(rowTwo.Dot(&vOne), rowTwo.Dot(&vTwo), rowTwo.Dot(&vThree), rowTwo.Dot(&vFour)),
+			vec4f(rowThree.Dot(&vOne), rowThree.Dot(&vTwo), rowThree.Dot(&vThree), rowThree.Dot(&vFour)),
+			vec4f(rowFour.Dot(&vOne), rowFour.Dot(&vTwo), rowFour.Dot(&vThree), rowFour.Dot(&vFour))
 		);
 	}
 

@@ -16,7 +16,7 @@ Model::Model(const char* _location, GeomUtils* _gUtil)
 	}
 	//Set transformation stuff to default values
 	scale = vec3f(1.0f, 1.0f, 1.0f);
-	position = vec3f(0.0f, 0.0f, -10.0f);
+	position = vec3f(0.0f, 0.0f, -300.0f);
 	
 }
 

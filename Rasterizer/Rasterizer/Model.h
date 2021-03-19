@@ -101,7 +101,9 @@ public:
 		}
 		//By this point there should be a fully fleshed out model matrix
 		//Now just concatonate with the view matrix and return it
-		return modelMatrix.GetMatrixMultiply(*_viewMat);
+		mat4 modelViewMat = modelMatrix.GetMatrixMultiply(*_viewMat);
+
+		return modelViewMat;
 	}
 
 private:

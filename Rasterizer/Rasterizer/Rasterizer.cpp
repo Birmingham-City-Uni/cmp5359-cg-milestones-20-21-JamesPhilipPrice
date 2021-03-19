@@ -58,6 +58,7 @@ int main()
         100.0f
     );
 
+    std::cout << "Building matricies for camera and models" << std::endl;
     //Build the neccesary matricies
     mat4 viewMatrix = cam->GetViewMatrix();
     viewMatrix.PrintDebugInfo();
@@ -69,10 +70,12 @@ int main()
     modelviewMatrix.PrintDebugInfo();
     std::cout << "Modelview" << std::endl;
 
+    std::cout << "Applying transformations" << std::endl;
     //Manipulate the model using the matricies
     TransformModel(testModel, &modelviewMatrix, &projectionMatrix);
 
-    /*std::cout << "Face count: " << testModel->GetFaceCount() << std::endl;
+    std::cout << "Rendering..." << std::endl;
+    std::cout << "Face count: " << testModel->GetFaceCount() << std::endl;
     for (int v = 0; v < testModel->GetFaceCount(); v++) {
         int index = v * 3;
         Vertex one = testModel->GetVertex(index);
@@ -87,8 +90,8 @@ int main()
         renUtil->RenderLine(one, two, testImage);
         renUtil->RenderLine(two, three, testImage);
         renUtil->RenderLine(three, one, testImage);
-    }*/
-    int index = 204 * 3;
+    }
+    /*int index = 204 * 3;
     Vertex one = testModel->GetVertex(index);
     Vertex two = testModel->GetVertex(index + 1);
     Vertex three = testModel->GetVertex(index + 2);
@@ -100,7 +103,7 @@ int main()
     three *= WIDTH / 2.0f;
     renUtil->RenderLine(one, two, testImage);
     renUtil->RenderLine(two, three, testImage);
-    renUtil->RenderLine(three, one, testImage);
+    renUtil->RenderLine(three, one, testImage);*/
     std::cout << "Finished rendering. Now exporting..." << std::endl;    
     //renUtil->RenderLine(testVertOne, testVertTwo, testImage);
     //testImage->SetPixel(511, 511, RGB(255, 0, 0));
