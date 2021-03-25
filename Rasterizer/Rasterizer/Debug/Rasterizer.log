@@ -1,23 +1,22 @@
 ﻿  Rasterizer.cpp
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(38,21): warning C4018: '<': signed/unsigned mismatch
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(90,21): warning C4018: '<': signed/unsigned mismatch
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(72,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(72,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(73,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(73,71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(83,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(83,71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(85,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(85,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(95,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(95,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(96,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(96,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(13,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(14,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(15,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(16,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(33,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(34,51): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-\\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Rasterizer.cpp(81,23): warning C4018: '<': signed/unsigned mismatch
-  Rasterizer.vcxproj -> \\students.uce.ac.uk\filespace\mb20\tic\S19108410\GitHub\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Debug\Rasterizer.exe
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(38,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(90,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(72,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(72,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(73,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(73,71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(83,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(83,71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(85,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(85,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(95,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(95,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(96,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(96,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(19,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(27,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(28,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(29,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(30,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Rasterizer.cpp(88,23): warning C4018: '<': signed/unsigned mismatch
+  Rasterizer.vcxproj -> E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Debug\Rasterizer.exe

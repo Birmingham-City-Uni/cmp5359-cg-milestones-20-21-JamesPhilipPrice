@@ -42,22 +42,26 @@ int main()
 
     Model* testModel = new Model("cc.obj", gUtil);
 
-    Vertex testVertOne = Vertex(10, 0, 0, 0, 0);
-    Vertex testVertTwo = Vertex(20, 10, 0, 0, 0);
+    //Transform the model
+    vec3f pos = vec3f(0.0f, 0.0f, -3.0f);
+    vec3f rot = vec3f(0.0f, 0.0f, 0.0f);
+    vec3f sca = vec3f(1.0f, 1.0f, 1.0f);
+    testModel->SetPosition(pos);
+    testModel->SetRotation(rot);
+    testModel->SetScale(sca);
 
     Image* testImage = new Image(WIDTH, HEIGHT);
 
-    float aspect = (float)(1080.0f / 1920.0f);
-    std::cout << "aspect: " << (float)aspect << std::endl;
     //Important world stuff
     Camera* cam = new Camera(
-        vec3f(0.0f, 0.0f, 0.0f),
+        vec3f(0.0f, 1.0f, 0.0f),
         0.0f,
         0.0f,
-        90.0f,
-        aspect,
-        0.01f,
-        2000.0f
+        25.0f,
+        1.0f,
+        0.5625f,
+        1.0f,
+        100.0f
     );
 
     std::cout << "Building matricies for camera and models" << std::endl;
@@ -71,6 +75,9 @@ int main()
     mat4 modelviewMatrix = testModel->CreateModelviewMatrix(&viewMatrix);
     modelviewMatrix.PrintDebugInfo();
     std::cout << "Modelview" << std::endl;
+    mat4 completeMatrix = modelviewMatrix.GetMatrixMultiply(projectionMatrix);
+    completeMatrix.PrintDebugInfo();
+    std::cout << "Complete" << std::endl;
 
     std::cout << "Applying transformations" << std::endl;
     //Manipulate the model using the matricies

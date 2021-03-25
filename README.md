@@ -35,3 +35,7 @@ There are some glaring bugs in the matrix transformations code that is making it
 
 ## 19/03/21 - The bugs have been fixed
 The bugs in the matrix transformation code has been fixed and now models can ben rendered correctly.
+
+## 25/03/21 - Odd issue found with distortion only when moveing or rotationg the camera
+I plan to work on the actual rendering functionality of the project to cull faces that are out of view as it may be a cause of the issue
+<img src="Documentation_assets/HugeHead.png?raw=true"/>

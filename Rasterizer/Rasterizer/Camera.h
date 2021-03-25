@@ -4,8 +4,22 @@
 
 class Camera {
 public:
-	Camera(vec3f _pos, float _pitch, float _yaw, float _hFOV, float _ar, float _near, float _far) : position(_pos), pitch(_pitch), yaw(_yaw), horizontalFOV(_hFOV), aspectRatio(_ar), nearPlane(_near), farPlane(_far) {
-		verticalFOV = horizontalFOV * aspectRatio;
+	Camera(vec3f _pos, float _pitch, float _yaw, float _hFOV, float _width, float _height, float _near, float _far) {
+		position = _pos;
+		pitch = _pitch;
+		yaw = _yaw;
+		nearPlane = _near;
+		farPlane = _far;
+
+		verticalFOV = _hFOV;
+		width = _width;
+		height = _height;
+		aspectRatio = width / height;
+
+		top = tanf((verticalFOV / 2.0) * PI / 180.0f) * nearPlane;
+		bottom = -top;
+		left = -top * aspectRatio;
+		right = top * aspectRatio;
 	}
 	~Camera() {}
 
@@ -30,14 +44,12 @@ public:
 	}
 
 	mat4 GetProjectionMatrix() {
-		float tanHalfAlpha = tanf((verticalFOV / 2.0f) * (PI / 180.0f));
-		float tanHalfBeta = tanf((horizontalFOV / 2.0f) * (PI / 180.0f));
 
 		mat4 tempMat = mat4(
-			vec4f((float)1 / tanHalfBeta, 0.0f, 0.0f, 0.0f),
-			vec4f(0.0f, (float)1 / tanHalfAlpha, 0.0f, 0.0f),
-			vec4f(0.0f, 0.0f, (float)farPlane / (farPlane - nearPlane), 1.0f),
-			vec4f(0.0f, 0.0f, (float)(-farPlane * nearPlane) / (farPlane - nearPlane), 0.0f)
+			vec4f((nearPlane / (width / 2.0f)), 0.0f, (left + right) / (width / 2.0f), 0.0f),
+			vec4f(0.0f, nearPlane / (height / 2.0f), (top + bottom) / (height / 2.0f), 0.0f),
+			vec4f(0.0f, 0.0f, -((farPlane + nearPlane) / (farPlane - nearPlane)), (2 * farPlane * nearPlane) / (farPlane - nearPlane)),
+			vec4f(0.0f, 0.0f, -1.0f, 0.0f)
 		);
 
 		return tempMat;
@@ -50,6 +62,8 @@ private:
 
 	//Clipping plane and viewport information
 	float nearPlane, farPlane;
-	float verticalFOV, horizontalFOV;
+	float width, height;
+	float top, bottom, left, right;
+	float verticalFOV;
 	float aspectRatio; //image height/width
 };
