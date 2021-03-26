@@ -43,7 +43,7 @@ int main()
     Model* testModel = new Model("cc.obj", gUtil);
 
     //Transform the model
-    vec3f pos = vec3f(0.0f, 0.0f, -3.0f);
+    vec3f pos = vec3f(0.0f, 0.0f, -35.0f);
     vec3f rot = vec3f(0.0f, 0.0f, 0.0f);
     vec3f sca = vec3f(1.0f, 1.0f, 1.0f);
     testModel->SetPosition(pos);
