@@ -37,7 +37,7 @@ public:
 			vec4f(xAxis.x, yAxis.x, zAxis.x, 0),
 			vec4f(xAxis.y, yAxis.y, zAxis.y, 0),
 			vec4f(xAxis.z, yAxis.z, zAxis.z, 0),
-			vec4f(-(xAxis.Dot(&position)), -(yAxis.Dot(&position)), -(zAxis.Dot(&position)), 1.0f)
+			vec4f(-(xAxis.Dot(&vec3f())), -(yAxis.Dot(&vec3f())), -(zAxis.Dot(&vec3f())), 1.0f)
 		);
 
 		return tempMat;
@@ -54,6 +54,8 @@ public:
 
 		return tempMat;
 	}
+
+	vec3f GetPosition() { return position; }
 
 private:
 	//World position and orientation

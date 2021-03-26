@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+#include <iostream>
 #define PI 3.1415
 
 struct vec2f {
@@ -307,6 +309,114 @@ struct mat4 {
 			rowFour.Dot(&_vec)
 		);
 	}
+
+	/*Source from Carlo Harvey (https://github.com/drcarlo/Software-Rasteriser-Starter) from geometry.h for finding inverse of 4x4 matrix*/
+
+	// Compute the inverse of the matrix using the Gauss-Jordan (or reduced row) elimination method.
+	// Don't worry at this point if you don't understand how this works. We need to be able to efficiently 
+	// compute an inverse of a matric for CameraToWorld and WorldToCamera manipulation. This allows this.  
+	mat4 Inverse() const
+	{
+		int i, j, k;
+		std::vector<std::vector<float>> s = {
+			std::vector<float> {1.0f, 0.0f, 0.0f, 0.0f},
+			std::vector<float> {0.0f, 1.0f, 0.0f, 0.0f},
+			std::vector<float> {0.0f, 0.0f, 1.0f, 0.0f},
+			std::vector<float> {0.0f, 0.0f, 0.0f, 1.0f}
+		};
+
+		std::vector<std::vector<float>> t = {
+			std::vector<float> {rowOne.x, rowOne.y, rowOne.z, rowOne.w},
+			std::vector<float> {rowTwo.x, rowTwo.y, rowTwo.z, rowTwo.w},
+			std::vector<float> {rowThree.x, rowThree.y, rowThree.z, rowThree.w},
+			std::vector<float> {rowFour.x, rowFour.y, rowFour.z, rowFour.w}
+		};
+
+		// Forward elimination
+		for (i = 0; i < 3; i++) {
+			int pivot = i;
+
+			float pivotsize = t[i][i];
+
+			if (pivotsize < 0)
+				pivotsize = -pivotsize;
+
+			for (j = i + 1; j < 4; j++) {
+				float tmp = t[j][i];
+
+				if (tmp < 0)
+					tmp = -tmp;
+
+				if (tmp > pivotsize) {
+					pivot = j;
+					pivotsize = tmp;
+				}
+			}
+
+			if (pivotsize == 0) {
+				// Cannot invert singular matrix
+				return mat4();
+			}
+
+			if (pivot != i) {
+				for (j = 0; j < 4; j++) {
+					float tmp;
+
+					tmp = t[i][j];
+					t[i][j] = t[pivot][j];
+					t[pivot][j] = tmp;
+
+					tmp = s[i][j];
+					s[i][j] = s[pivot][j];
+					s[pivot][j] = tmp;
+				}
+			}
+
+			for (j = i + 1; j < 4; j++) {
+				float f = t[j][i] / t[i][i];
+
+				for (k = 0; k < 4; k++) {
+					t[j][k] -= f * t[i][k];
+					s[j][k] -= f * s[i][k];
+				}
+			}
+		}
+
+		// Backward substitution
+		for (i = 3; i >= 0; --i) {
+			float f;
+
+			if ((f = t[i][i]) == 0) {
+				// Cannot invert singular matrix
+				return mat4();
+			}
+
+			for (j = 0; j < 4; j++) {
+				t[i][j] /= f;
+				s[i][j] /= f;
+			}
+
+			for (j = 0; j < i; j++) {
+				f = t[j][i];
+
+				for (k = 0; k < 4; k++) {
+					t[j][k] -= f * t[i][k];
+					s[j][k] -= f * s[i][k];
+				}
+			}
+		}
+
+		mat4 outputMat = mat4(
+			vec4f(s[0][0], s[0][1], s[0][2], s[0][3]),
+			vec4f(s[1][0], s[1][1], s[1][2], s[1][3]),
+			vec4f(s[2][0], s[2][1], s[2][2], s[2][3]),
+			vec4f(s[3][0], s[3][1], s[3][2], s[3][3])
+		);
+
+		return outputMat;
+	}
+
+	/*Source from Carlo Harvey ends*/
 
 	void PrintDebugInfo() {
 		std::cout << "__________Matrix debug Info__________" << std::endl;

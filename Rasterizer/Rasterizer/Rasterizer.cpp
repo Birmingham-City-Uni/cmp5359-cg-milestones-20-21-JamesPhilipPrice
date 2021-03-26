@@ -40,10 +40,10 @@ int main()
     GeomUtils* gUtil = new GeomUtils();
     RenderUtils* renUtil = new RenderUtils(1);
 
-    Model* testModel = new Model("cc.obj", gUtil);
+    Model* testModel = new Model("test.obj", gUtil);
 
     //Transform the model
-    vec3f pos = vec3f(0.0f, 0.0f, -35.0f);
+    vec3f pos = vec3f(0.0f, 0.0f, 0.0f);
     vec3f rot = vec3f(0.0f, 0.0f, 0.0f);
     vec3f sca = vec3f(1.0f, 1.0f, 1.0f);
     testModel->SetPosition(pos);
@@ -52,32 +52,40 @@ int main()
 
     Image* testImage = new Image(WIDTH, HEIGHT);
 
+    float viewportModifier = 0.9f;
+
     //Important world stuff
     Camera* cam = new Camera(
-        vec3f(0.0f, 1.0f, 0.0f),
-        0.0f,
-        0.0f,
-        25.0f,
-        1.0f,
-        0.5625f,
-        1.0f,
-        100.0f
+        vec3f(113.455f, 62.9185f, 14.8309f),
+        -0.8f,
+        107.0f,
+        39.6f,
+        0.8716f * viewportModifier,
+        0.4903f * viewportModifier,
+        1.01f,
+        1000.0f
     );
 
     std::cout << "Building matricies for camera and models" << std::endl;
     //Build the neccesary matricies
+    //View and the inverse of it
     mat4 viewMatrix = cam->GetViewMatrix();
     viewMatrix.PrintDebugInfo();
     std::cout << "view" << std::endl;
+    mat4 viewMatrixInverse = viewMatrix.Inverse();
+    viewMatrixInverse.PrintDebugInfo();
+    std::cout << "view inverse" << std::endl;
+
+    //Projection
     mat4 projectionMatrix = cam->GetProjectionMatrix();
     projectionMatrix.PrintDebugInfo();
     std::cout << "Projection" << std::endl;
-    mat4 modelviewMatrix = testModel->CreateModelviewMatrix(&viewMatrix);
+
+    //Modelview
+    mat4 modelviewMatrix = testModel->CreateModelviewMatrix(&viewMatrix, cam->GetPosition());
+    modelviewMatrix = modelviewMatrix.Inverse();
     modelviewMatrix.PrintDebugInfo();
     std::cout << "Modelview" << std::endl;
-    mat4 completeMatrix = modelviewMatrix.GetMatrixMultiply(projectionMatrix);
-    completeMatrix.PrintDebugInfo();
-    std::cout << "Complete" << std::endl;
 
     std::cout << "Applying transformations" << std::endl;
     //Manipulate the model using the matricies

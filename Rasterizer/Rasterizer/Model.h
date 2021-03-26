@@ -50,13 +50,14 @@ public:
 		scale = _vec;
 	}
 
-	mat4 CreateModelviewMatrix(mat4* _viewMat) {
+	mat4 CreateModelviewMatrix(mat4* _viewMat, vec3f _camPos) {
 		//Create the model matrix first
+
 		//Scale and translate transforms
 		mat4 modelMatrix = mat4(
-			vec4f(scale.x, 0.0f, 0.0f, position.x),
-			vec4f(0.0f, scale.y, 0.0f, position.y),
-			vec4f(0.0f, 0.0f, scale.z, position.z),
+			vec4f(scale.x, 0.0f, 0.0f, position.x + _camPos.x),
+			vec4f(0.0f, scale.y, 0.0f, position.y + _camPos.y),
+			vec4f(0.0f, 0.0f, scale.z, position.z + _camPos.z),
 			vec4f(0.0f, 0.0f, 0.0f, 1.0f)
 		);
 
