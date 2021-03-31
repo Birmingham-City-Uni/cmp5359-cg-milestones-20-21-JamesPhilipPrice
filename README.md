@@ -39,3 +39,14 @@ The bugs in the matrix transformation code has been fixed and now models can ben
 ## 25/03/21 - Odd issue found with distortion only when moveing or rotationg the camera
 I plan to work on the actual rendering functionality of the project to cull faces that are out of view as it may be a cause of the issue
 <img src="Documentation_assets/HugeHead.png?raw=true"/>
+
+## 26/03/21 - FIXED: camera matrix issues are now solved
+No abnormal/unexpected distortions occur
+
+## 30/03/21 - Got solid triangles rendering without any shading
+I haven't implemented normals for shading yet and will work towards implementing texturing
+<img src="Documentation_assets/no_normals_solid.png?raw=true"/>
+
+## 31/03/21 - Implemented very basic texture system (with faults: no UV mapping)
+I still need to implement UV controlled texturing. At the moment the models are only textured using a single pixel of a texture, to prove as proof of concept that the texturing works.
+<img src="Documentation_assets/TextureTest.png?raw=true"/>
