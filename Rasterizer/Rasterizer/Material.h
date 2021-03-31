@@ -57,6 +57,8 @@ public:
 	}
 	~Material() {}
 
+
+	/*Following method uses modified form of code found in solution of https://stackoverflow.com/questions/53033971/how-to-get-the-color-of-a-specific-pixel-from-sdl-surface */
 	Uint32 GetPixelOfSurface(SDL_Surface* _surface, int _bpp, int _x, int _y) {
 		Uint8* pixel = (Uint8*)_surface->pixels + _y * _surface->pitch + _x * _bpp;
 		switch (_bpp) {
@@ -82,6 +84,7 @@ public:
 			break;
 		}
 	}
+	/*used code stops here*/
 
 
 
