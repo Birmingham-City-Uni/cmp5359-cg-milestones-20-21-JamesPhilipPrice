@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Geometry.h"
 #include "GeometryCore.h"
+#include "Material.h"
 
 class Model {
 public:

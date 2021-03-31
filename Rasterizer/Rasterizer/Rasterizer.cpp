@@ -1,10 +1,13 @@
 // Rasterizer.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include <iostream>
+#include <SDL.h>
+#include <SDL_image.h>
 #include "Model.h"
 #include "ImageUtil.h"
 #include "RenderUtils.h"
 #include "Camera.h"
+#undef main
 
 #define WIDTH 1920
 #define HEIGHT 1080
@@ -43,6 +46,11 @@ int main()
 
     //Create the models to be rendered and transform them
     Model* testModel = new Model("test.obj", gUtil);
+    Material* modelMat = new Material(
+        "inputFiles/textures/test.png",
+        "inputFiles/textures/test.png",
+        "inputFiles/textures/test.png"
+    );
 
     vec3f pos = vec3f(0.0f, 0.0f, 0.0f);
     vec3f rot = vec3f(0.0f, 0.0f, 0.0f);
@@ -107,7 +115,7 @@ int main()
     
     //Start rendering faces
     for (int v = 0; v < testModel->GetFaceCount(); v++) {
-        std::cout << "Rendering face: " << v << std::endl;
+        //std::cout << "Rendering face: " << v << std::endl;
         int index = v * 3;
         Vertex one = testModel->GetVertex(index);
         Vertex two = testModel->GetVertex(index+1);
@@ -122,7 +130,7 @@ int main()
             two.y *= HEIGHT / 2.0f;
             three.x *= WIDTH / 2.0f;
             three.y *= HEIGHT / 2.0f;
-            renUtil->RenderTrianlge(one, two, three, testImage);
+            renUtil->RenderTrianlge(one, two, three, testImage, modelMat);
         }
     }
     std::cout << "Finished rendering. Now exporting..." << std::endl;    
@@ -132,4 +140,15 @@ int main()
     //Flip image vertically and export
     testImage->FlipVertical();
     testImage->WriteImage("testExp.ppm");
+
+
+    //Cleanup
+
+    delete gUtil;
+    delete renUtil;
+    delete testModel;
+    delete modelMat;
+    delete testImage;
+    delete cam;
+    return 0;
 }

@@ -41,7 +41,7 @@ void RenderUtils::RenderLine(Vertex _pointOne, Vertex _pointTwo, Image* _img)
     }
 }
 
-void RenderUtils::RenderTrianlge(Vertex _pointOne, Vertex _pointTwo, Vertex _pointThree, Image* _img)
+void RenderUtils::RenderTrianlge(Vertex _pointOne, Vertex _pointTwo, Vertex _pointThree, Image* _img, Material* _mat)
 {
     if (_pointOne.y == _pointTwo.y && _pointOne.y == _pointThree.y) return; // Ignore degenerate triangles 
     // sort the vertices, t0, t1, t2 lower−to−upper (bubblesort yay!) 
@@ -65,7 +65,10 @@ void RenderUtils::RenderTrianlge(Vertex _pointOne, Vertex _pointTwo, Vertex _poi
                 float zBuffVal = A.z + (((j - A.x) / (B.x - A.x)) * (B.z - A.z));
                 int y = (_pointOne.y + i);
                 if (zBuffVal > zBuffer[y][j]) {
-                    _img->SetPixel(j, _pointOne.y + i, RGB(100, 100, 100));
+                    //Where the actual colour calculation happens
+                    float u = 1.0f;
+                    float v = 1.0f;
+                    _img->SetPixel(j, _pointOne.y + i, _mat->GetDifusePixel(u, v));
                     zBuffer[y][j] = zBuffVal;
                 }
             }

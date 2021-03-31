@@ -2,6 +2,9 @@
 #include "Geometry.h"
 #include "ImageUtil.h"
 #include "GeometryCore.h"
+#include "Material.h"
+#include <SDL.h>
+#include <SDL_image.h>
 
 #define WIDTH 1920
 #define HEIGHT 1080
@@ -15,7 +18,7 @@ public:
 
 	void RenderPoint(Vertex _point, Image* _img);
 	void RenderLine(Vertex _pointOne, Vertex _pointTwo, Image* _img);
-	void RenderTrianlge(Vertex _pointOne, Vertex _pointTwo, Vertex _pointThree, Image* _img);
+	void RenderTrianlge(Vertex _pointOne, Vertex _pointTwo, Vertex _pointThree, Image* _img, Material* _mat);
 
 private:
 	float zBuffer[HEIGHT][WIDTH];
