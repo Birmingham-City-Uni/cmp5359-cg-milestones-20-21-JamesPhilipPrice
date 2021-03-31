@@ -150,6 +150,7 @@
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="GeometryCore.h" />
     <ClInclude Include="ImageUtil.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="RenderUtils.h" />
   </ItemGroup>

@@ -24,6 +24,7 @@ public:
 	~Camera() {}
 
 	mat4 GetViewMatrix() {
+		vec3f identity = vec3f();
 		float cosPitch = cosf(pitch * PI / 180.0f);
 		float sinPitch = sinf(pitch * PI / 180.0f);
 		float cosYaw = cosf(yaw * PI / 180.0f);
@@ -37,7 +38,7 @@ public:
 			vec4f(xAxis.x, yAxis.x, zAxis.x, 0),
 			vec4f(xAxis.y, yAxis.y, zAxis.y, 0),
 			vec4f(xAxis.z, yAxis.z, zAxis.z, 0),
-			vec4f(-(xAxis.Dot(&vec3f())), -(yAxis.Dot(&vec3f())), -(zAxis.Dot(&vec3f())), 1.0f)
+			vec4f(-(xAxis.Dot(&identity)), -(yAxis.Dot(&identity)), -(zAxis.Dot(&identity)), 1.0f)
 		);
 
 		return tempMat;

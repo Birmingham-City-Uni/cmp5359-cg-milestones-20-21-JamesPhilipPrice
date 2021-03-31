@@ -1,5 +1,14 @@
 ﻿#include "RenderUtils.h"
 
+void RenderUtils::SetupZBuffer()
+{
+    for (int y = 0; y < HEIGHT; y++) {
+        for (int x = 0; x < WIDTH; x++) {
+            zBuffer[y][x] = std::numeric_limits<float>::min();
+        }
+    }
+}
+
 void RenderUtils::RenderPoint(Vertex _point, Image* _img)
 {
 }
@@ -32,7 +41,7 @@ void RenderUtils::RenderLine(Vertex _pointOne, Vertex _pointTwo, Image* _img)
     }
 }
 
-void RenderUtils::RenderTrianlge(vec2f _pointOne, vec2f _pointTwo, vec2f _pointThree, Image* _img)
+void RenderUtils::RenderTrianlge(Vertex _pointOne, Vertex _pointTwo, Vertex _pointThree, Image* _img)
 {
     if (_pointOne.y == _pointTwo.y && _pointOne.y == _pointThree.y) return; // Ignore degenerate triangles 
     // sort the vertices, t0, t1, t2 lower−to−upper (bubblesort yay!) 
@@ -45,11 +54,23 @@ void RenderUtils::RenderTrianlge(vec2f _pointOne, vec2f _pointTwo, vec2f _pointT
         int segment_height = second_half ? _pointThree.y - _pointTwo.y : _pointTwo.y - _pointOne.y;
         float alpha = (float)i / total_height;
         float beta = (float)(i - (second_half ? _pointTwo.y - _pointOne.y : 0)) / segment_height; // be careful: with above conditions no division by zero here 
-        vec2f A = _pointOne + (_pointThree - _pointOne) * alpha;
-        vec2f B = second_half ? _pointTwo + (_pointThree - _pointTwo) * beta : _pointOne + (_pointTwo - _pointOne) * beta;
+        Vertex tempA = _pointOne + (_pointThree - _pointOne) * alpha;
+        Vertex tempB = second_half ? _pointTwo + (_pointThree - _pointTwo) * beta : _pointOne + (_pointTwo - _pointOne) * beta;
+        vec3f A = vec3f(tempA.x, tempA.y, tempA.z);
+        vec3f B = vec3f(tempB.x, tempB.y, tempB.z);
         if (A.x > B.x) std::swap(A, B);
         for (int j = A.x; j <= B.x; j++) {
-            _img->SetPixel(j, _pointOne.y + i, RGB(100, 100, 100)); // attention, due to int casts t0.y+i != A.y 
+            //Make sure pixel is in the image space
+            if ((j >= 0 && j < WIDTH) && (_pointOne.y + i >= 0 && _pointOne.y + i < HEIGHT)) {
+                float zBuffVal = A.z + (((j - A.x) / (B.x - A.x)) * (B.z - A.z));
+                int y = (_pointOne.y + i);
+                if (zBuffVal > zBuffer[y][j]) {
+                    _img->SetPixel(j, _pointOne.y + i, RGB(100, 100, 100));
+                    zBuffer[y][j] = zBuffVal;
+                }
+            }
+            
+            
         }
     }
 }

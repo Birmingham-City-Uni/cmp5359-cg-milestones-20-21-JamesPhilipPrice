@@ -29,4 +29,32 @@ struct Vertex {
 		y += _v;
 		z += _v;
 	}
+	
+	Vertex operator + (Vertex _v) {
+		return Vertex(
+			x + _v.x,
+			y + _v.y,
+			z + _v.z,
+			u, v
+		);
+	}
+
+	Vertex operator - (Vertex _v) {
+		return Vertex(
+			x - _v.x,
+			y - _v.y,
+			z - _v.z,
+			u, v
+		);
+	}
+
+	Vertex operator * (float _v) {
+		return Vertex(
+			x * _v,
+			y * _v,
+			z * _v,
+			u,
+			v
+		);
+	}
 };

@@ -107,6 +107,25 @@ public:
 		return modelViewMat;
 	}
 
+	void CullFaces() {
+		std::vector<Vertex> newVerts;
+		for (int i = 0; i < numFaces; i++) {
+			Vertex one = verticies[(i * 3)];
+			Vertex two = verticies[(i * 3) + 1];
+			Vertex three = verticies[(i * 3) + 2];
+			//Run through all cases for why a triangle would be removed from rendering
+			//Check if any verts are in the clip space
+			if (((one.x > -1 && one.x < 1) && (one.y > -1 && one.y < 1)) || ((two.x > -1 && two.x < 1) && (two.y > -1 && two.y < 1)) || ((three.x > -1 && three.x < 1) && (three.y > -1 && three.y < 1))) {
+				newVerts.emplace_back(one);
+				newVerts.emplace_back(two);
+				newVerts.emplace_back(three);
+			}
+		}
+		verticies.clear();
+		verticies = newVerts;
+		numFaces = verticies.size()/3;
+	}
+
 private:
 	vec3f position, rotation, scale;
 

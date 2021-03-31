@@ -162,6 +162,10 @@ struct vec3f {
 	float Dot(vec3f* _v) {
 		return (x * _v->x + y * _v->y + z * _v->z);
 	}
+
+	float Dot(vec3f& _v) {
+		return (x * _v.x + y * _v.y + z * _v.z);
+	}
 };
 
 struct vec4f {

@@ -37,12 +37,13 @@ void TransformModel(Model* _model, mat4* _modelviewMat, mat4* _projectionMat) {
 
 int main()
 {
+    //Create the basic rendering tools needed
     GeomUtils* gUtil = new GeomUtils();
     RenderUtils* renUtil = new RenderUtils(1);
 
+    //Create the models to be rendered and transform them
     Model* testModel = new Model("test.obj", gUtil);
 
-    //Transform the model
     vec3f pos = vec3f(0.0f, 0.0f, 0.0f);
     vec3f rot = vec3f(0.0f, 0.0f, 0.0f);
     vec3f sca = vec3f(1.0f, 1.0f, 1.0f);
@@ -50,11 +51,15 @@ int main()
     testModel->SetRotation(rot);
     testModel->SetScale(sca);
 
+
+    //Create the image object
     Image* testImage = new Image(WIDTH, HEIGHT);
 
     float viewportModifier = 0.9f;
+    float nearClipping = 1.0f;
+    float farClipping = 1000.0f;
 
-    //Important world stuff
+    //Create the camera for perspective rendering
     Camera* cam = new Camera(
         vec3f(113.455f, 62.9185f, 14.8309f),
         -0.8f,
@@ -62,8 +67,8 @@ int main()
         39.6f,
         0.8716f * viewportModifier,
         0.4903f * viewportModifier,
-        1.01f,
-        1000.0f
+        nearClipping,
+        farClipping
     );
 
     std::cout << "Building matricies for camera and models" << std::endl;
@@ -91,40 +96,35 @@ int main()
     //Manipulate the model using the matricies
     TransformModel(testModel, &modelviewMatrix, &projectionMatrix);
 
+    std::cout << "Culling faces from model" << std::endl;
+    testModel->CullFaces();
+
+    //Start rendering
     std::cout << "Rendering..." << std::endl;
     std::cout << "Face count: " << testModel->GetFaceCount() << std::endl;
+    //Create the z buffer in the render utility
+    renUtil->SetupZBuffer();
+    
+    //Start rendering faces
     for (int v = 0; v < testModel->GetFaceCount(); v++) {
-        //std::cout << "Rendering face: " << v << std::endl;
+        std::cout << "Rendering face: " << v << std::endl;
         int index = v * 3;
         Vertex one = testModel->GetVertex(index);
         Vertex two = testModel->GetVertex(index+1);
         Vertex three = testModel->GetVertex(index+2);
-        one += 1.0f;
-        two += 1.0f;
-        three += 1.0f;
-        one.x *= WIDTH / 2.0f;
-        one.y *= HEIGHT / 2.0f;
-        two.x *= WIDTH / 2.0f;
-        two.y *= HEIGHT / 2.0f;
-        three.x *= WIDTH / 2.0f;
-        three.y *= HEIGHT / 2.0f;
-        renUtil->RenderLine(one, two, testImage);
-        renUtil->RenderLine(two, three, testImage);
-        renUtil->RenderLine(three, one, testImage);
+        if ((one.z < farClipping && one.z > nearClipping) || (two.z < farClipping && two.z > nearClipping) || (three.z < farClipping && three.z > nearClipping)) {
+            one += 1.0f;
+            two += 1.0f;
+            three += 1.0f;
+            one.x *= WIDTH / 2.0f;
+            one.y *= HEIGHT / 2.0f;
+            two.x *= WIDTH / 2.0f;
+            two.y *= HEIGHT / 2.0f;
+            three.x *= WIDTH / 2.0f;
+            three.y *= HEIGHT / 2.0f;
+            renUtil->RenderTrianlge(one, two, three, testImage);
+        }
     }
-    /*int index = 204 * 3;
-    Vertex one = testModel->GetVertex(index);
-    Vertex two = testModel->GetVertex(index + 1);
-    Vertex three = testModel->GetVertex(index + 2);
-    one += 1.0f;
-    two += 1.0f;
-    three += 1.0f;
-    one *= WIDTH / 2.0f;
-    two *= WIDTH / 2.0f;
-    three *= WIDTH / 2.0f;
-    renUtil->RenderLine(one, two, testImage);
-    renUtil->RenderLine(two, three, testImage);
-    renUtil->RenderLine(three, one, testImage);*/
     std::cout << "Finished rendering. Now exporting..." << std::endl;    
     //renUtil->RenderLine(testVertOne, testVertTwo, testImage);
     //testImage->SetPixel(511, 511, RGB(255, 0, 0));
