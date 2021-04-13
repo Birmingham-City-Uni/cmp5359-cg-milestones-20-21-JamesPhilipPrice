@@ -88,7 +88,7 @@ public:
 
 
 
-	RGB GetDifusePixel(int _u, int _v) {
+	RGB GetDifusePixel(float _u, float _v) {
 		int x = _u * (difuseWidth-1);
 		int y = _v * (difuseHeight-1);
 		return difuseTexture[y][x];

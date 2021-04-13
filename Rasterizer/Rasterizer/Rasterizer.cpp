@@ -47,7 +47,7 @@ int main()
     //Create the models to be rendered and transform them
     Model* testModel = new Model("test.obj", gUtil);
     Material* modelMat = new Material(
-        "inputFiles/textures/test.png",
+        "inputFiles/textures/checker.png",
         "inputFiles/textures/test.png",
         "inputFiles/textures/test.png"
     );

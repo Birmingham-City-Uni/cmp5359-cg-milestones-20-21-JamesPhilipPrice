@@ -1,6 +1,25 @@
-﻿  Rasterizer.cpp
+﻿  Model.cpp
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(38,21): warning C4018: '<': signed/unsigned mismatch
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(90,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Material.h(92,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Material.h(93,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(74,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(74,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(75,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(75,71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(85,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(85,71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(87,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(87,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(97,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(97,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(98,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(98,65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Rasterizer.cpp
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(38,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(90,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Material.h(92,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Material.h(93,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(74,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(74,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Model.h(75,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -19,4 +38,19 @@ E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Raste
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(30,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Camera.h(31,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Rasterizer.cpp(117,23): warning C4018: '<': signed/unsigned mismatch
+  RenderUtils.cpp
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(38,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Geometry.h(90,21): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Material.h(92,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\Material.h(93,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(36,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(36,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(39,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(39,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(51,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(54,28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(65,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(69,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Rasterizer\RenderUtils.cpp(74,51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   Rasterizer.vcxproj -> E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Rasterizer\Debug\Rasterizer.exe

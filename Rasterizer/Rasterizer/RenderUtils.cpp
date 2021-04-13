@@ -54,10 +54,13 @@ void RenderUtils::RenderTrianlge(Vertex _pointOne, Vertex _pointTwo, Vertex _poi
         int segment_height = second_half ? _pointThree.y - _pointTwo.y : _pointTwo.y - _pointOne.y;
         float alpha = (float)i / total_height;
         float beta = (float)(i - (second_half ? _pointTwo.y - _pointOne.y : 0)) / segment_height; // be careful: with above conditions no division by zero here 
-        Vertex tempA = _pointOne + (_pointThree - _pointOne) * alpha;
-        Vertex tempB = second_half ? _pointTwo + (_pointThree - _pointTwo) * beta : _pointOne + (_pointTwo - _pointOne) * beta;
-        vec3f A = vec3f(tempA.x, tempA.y, tempA.z);
-        vec3f B = vec3f(tempB.x, tempB.y, tempB.z);
+        //Create vertices for the line to be drawn with the UV
+        Vertex A = _pointOne + (_pointThree - _pointOne) * alpha;
+        A.u = _pointOne.u + (_pointThree.u - _pointOne.u) * alpha;
+        A.v = _pointOne.v + (_pointThree.v - _pointOne.v) * alpha;
+        Vertex B = second_half ? _pointTwo + (_pointThree - _pointTwo) * beta : _pointOne + (_pointTwo - _pointOne) * beta;
+        B.u = second_half ? _pointTwo.u + (_pointThree.u - _pointTwo.u) * beta : _pointOne.u + (_pointTwo.u - _pointOne.u) * beta;
+        B.v = second_half ? _pointTwo.v + (_pointThree.v - _pointTwo.v) * beta : _pointOne.v + (_pointTwo.v - _pointOne.v) * beta;
         if (A.x > B.x) std::swap(A, B);
         for (int j = A.x; j <= B.x; j++) {
             //Make sure pixel is in the image space
@@ -66,8 +69,8 @@ void RenderUtils::RenderTrianlge(Vertex _pointOne, Vertex _pointTwo, Vertex _poi
                 int y = (_pointOne.y + i);
                 if (zBuffVal > zBuffer[y][j]) {
                     //Where the actual colour calculation happens
-                    float u = 1.0f;
-                    float v = 1.0f;
+                    float u = A.u + (B.u - A.u) * ((float)j / B.x);
+                    float v = A.v + (B.v - A.v) * ((float)j / B.x);
                     _img->SetPixel(j, _pointOne.y + i, _mat->GetDifusePixel(u, v));
                     zBuffer[y][j] = zBuffVal;
                 }
