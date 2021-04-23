@@ -166,6 +166,19 @@ struct vec3f {
 	float Dot(vec3f& _v) {
 		return (x * _v.x + y * _v.y + z * _v.z);
 	}
+
+	vec3f Cross(vec3f* _v) {
+		vec3f outputVec;
+		outputVec.x = y * _v->z - z * _v->y;
+		outputVec.y = x * _v->z - z * _v->x;
+		outputVec.z = x * _v->y - y * _v->x;
+
+		return outputVec;
+	}
+
+	float Length() {
+		return sqrt((x * x) + (y * y) + (z * z));
+	}
 };
 
 struct vec4f {

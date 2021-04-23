@@ -113,6 +113,14 @@ int main()
     //Create the z buffer in the render utility
     renUtil->SetupZBuffer();
     
+    for (int v = 0; v < testModel->GetFaceCount() * 3; v++) {
+        Vertex one = testModel->GetVertex(v);
+        if (one.x < -1 || one.x > 1 || one.y < -1 || one.y > 1 || one.z < -1 || one.z > 1) {
+            std::cout << "Non NDC detected at index: " << v << std::endl;
+        }
+        
+    }
+
     //Start rendering faces
     for (int v = 0; v < testModel->GetFaceCount(); v++) {
         //std::cout << "Rendering face: " << v << std::endl;
