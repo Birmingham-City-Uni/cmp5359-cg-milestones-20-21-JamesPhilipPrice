@@ -93,12 +93,11 @@ void RenderUtils::RenderTrianlge(Vertex _pointOne, Vertex _pointTwo, Vertex _poi
                 if (zBuffVal > zBuffer[y][j]) {
                     //Where the actual colour calculation happens
                     // calculate u,v from barycentric coordinate of Q ( Q in Triangle)
-                    vec3f Q((j / xScale)-1.0f, (i / yScale)-1.0f, zBuffVal - 1.0f);
+                    vec3f Q((j/xScale)-1.0f, (A.y/yScale)-1.0f, zBuffVal - 1.0f);
                     Vertex pA((_pointOne.x / xScale) - 1.0f, (_pointOne.y / yScale) - 1.0f, _pointOne.z - 1.0, _pointOne.u, _pointOne.v);
                     Vertex pB((_pointTwo.x / xScale) - 1.0f, (_pointTwo.y / yScale) - 1.0f, _pointTwo.z - 1.0, _pointTwo.u, _pointTwo.v);
                     Vertex pC((_pointThree.x / xScale) - 1.0f, (_pointThree.y / yScale) - 1.0f, _pointThree.z - 1.0, _pointThree.u, _pointThree.v);
                     vec2f uv = CalculateBarycentricBasedUV(pA, pB, pC, Q);
-
                     _img->SetPixel(j, _pointOne.y + i, _mat->GetDifusePixel(uv.x, uv.y));
                     zBuffer[y][j] = zBuffVal;
                 }

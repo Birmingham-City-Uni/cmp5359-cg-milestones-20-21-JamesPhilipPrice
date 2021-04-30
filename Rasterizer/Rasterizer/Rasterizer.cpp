@@ -38,6 +38,20 @@ void TransformModel(Model* _model, mat4* _modelviewMat, mat4* _projectionMat) {
     std::cout << "Finished processing verts" << std::endl;
 }
 
+vec3f TransformVert(vec3f& _vert, mat4& _modelviewMat, mat4& _projectionMat) {
+    vec4f vertPos = vec4f(_vert.x, _vert.y, _vert.z, 1.0f);
+    //Matrix-Vector multiplication with the modelview matrix, and then the projection matrix
+    vertPos = _modelviewMat.VectorMultiply(vertPos);
+    vertPos = _projectionMat.VectorMultiply(vertPos);
+    //Perform perspective division
+    //std::cout << "X: " << vertPos.x << " Y: " << vertPos.y << " Z: " << vertPos.z << " W: " << vertPos.w << std::endl;
+    vertPos.x /= vertPos.w;
+    vertPos.y /= vertPos.w;
+    vertPos.z /= vertPos.w;
+    vertPos.w /= vertPos.w;
+    return vec3f(vertPos.x, vertPos.y, vertPos.z);
+}
+
 int main()
 {
     //Create the basic rendering tools needed
@@ -63,7 +77,7 @@ int main()
     //Create the image object
     Image* testImage = new Image(WIDTH, HEIGHT);
 
-    float viewportModifier = 0.9f;
+    float viewportModifier = 1.0f;
     float nearClipping = 1.0f;
     float farClipping = 1000.0f;
 
@@ -115,7 +129,7 @@ int main()
     
     for (int v = 0; v < testModel->GetFaceCount() * 3; v++) {
         Vertex one = testModel->GetVertex(v);
-        if (one.x < -1 || one.x > 1 || one.y < -1 || one.y > 1 || one.z < -1 || one.z > 1) {
+        if ((one.x < -1 || one.x > 1) && (one.y < -1 || one.y > 1) && (one.z < -1 || one.z > 1)) {
             std::cout << "Non NDC detected at index: " << v << std::endl;
         }
         
@@ -125,21 +139,69 @@ int main()
     for (int v = 0; v < testModel->GetFaceCount(); v++) {
         //std::cout << "Rendering face: " << v << std::endl;
         int index = v * 3;
-        Vertex one = testModel->GetVertex(index);
-        Vertex two = testModel->GetVertex(index+1);
-        Vertex three = testModel->GetVertex(index+2);
-        if ((one.z < farClipping && one.z > nearClipping) || (two.z < farClipping && two.z > nearClipping) || (three.z < farClipping && three.z > nearClipping)) {
-            one += 1.0f;
-            two += 1.0f;
-            three += 1.0f;
-            one.x *= WIDTH / 2.0f;
-            one.y *= HEIGHT / 2.0f;
-            two.x *= WIDTH / 2.0f;
-            two.y *= HEIGHT / 2.0f;
-            three.x *= WIDTH / 2.0f;
-            three.y *= HEIGHT / 2.0f;
-            renUtil->RenderTrianlge(one, two, three, testImage, modelMat);
+        //Get verticies and uv texture coordinates together
+        const Vertex vert0 = testModel->GetVertex(index);
+        const Vertex vert1 = testModel->GetVertex(index + 1);
+        const Vertex vert2 = testModel->GetVertex(index + 2);
+
+        vec3f v0(vert0.x, vert0.y, vert0.z);
+        vec3f v1(vert1.x, vert1.y, vert1.z);
+        vec3f v2(vert2.x, vert2.y, vert2.z);
+
+        vec3f rasterv0 = TransformVert(v0, modelviewMatrix, projectionMatrix);
+        vec3f rasterv1 = TransformVert(v1, modelviewMatrix, projectionMatrix);
+        vec3f rasterv2 = TransformVert(v2, modelviewMatrix, projectionMatrix);
+
+        rasterv0.z = 1 / rasterv0.z;
+        rasterv1.z = 1 / rasterv1.z;
+        rasterv2.z = 1 / rasterv2.z;
+
+        vec2f st0(vert0.u, vert0.v);
+        vec2f st1(vert1.u, vert1.v);
+        vec2f st2(vert2.u, vert2.v);
+        st0 *= rasterv0.z;
+        st1 *= rasterv1.z;
+        st2 *= rasterv2.z;
+
+        //Calculate the bounding box of the triangle
+        float xMin = Min3(rasterv0.x, rasterv1.x, rasterv2.x);
+        float yMin = Min3(rasterv0.y, rasterv1.y, rasterv2.y);
+        float xMax = Max3(rasterv0.x, rasterv1.x, rasterv2.x);
+        float yMax = Max3(rasterv0.y, rasterv1.y, rasterv2.y);
+
+        //Check if the triangle is outside of the screen
+        if (xMin > WIDTH - 1 || xMax < 0 || yMin > HEIGHT - 1 || yMax < 0) {
+            continue;
         }
+
+        //Define the bounds of the raster triangle
+        uint32_t x0 = std::max(int32_t(0), (int32_t)(std::floor(xMin)));
+        uint32_t x1 = std::min(int32_t(WIDTH) - 1, (int32_t)(std::floor(xMax)));
+        uint32_t y0 = std::max(int32_t(0), (int32_t)(std::floor(yMin)));
+        uint32_t y1 = std::min(int32_t(HEIGHT) - 1, (int32_t)(std::floor(yMax)));
+
+        //Area for the triangle
+        vec3f AB = (rasterv1 - rasterv0);
+        vec3f AC = (rasterv2 - rasterv0);
+        float area = AB.Cross(&AC).Length() / 2.0f;
+
+        //Loop through each pixel of the bounding box
+        for (int y = 0; y <= y1; y++) {
+            for (int x = 0; x <= x1; x++) {
+                vec3f pixelSample(x + 0.5f, y + 0.5f, 0);
+
+                //Calculate weightings for uvs
+                vec3f QA = rasterv0 - pixelSample;
+                vec3f QB = rasterv1 - pixelSample;
+                vec3f QC = rasterv2 - pixelSample;
+                float w0 = QB.Cross(&QC).Length() / 2.0f;
+                float w1 = QA.Cross(&QC).Length() / 2.0f;
+                float w2 = QA.Cross(&QB).Length() / 2.0f;
+
+
+            }
+        }
+
     }
     std::cout << "Finished rendering. Now exporting..." << std::endl;    
     //renUtil->RenderLine(testVertOne, testVertTwo, testImage);

@@ -3,6 +3,14 @@
 #include <iostream>
 #define PI 3.1415
 
+float Min3(float _x, float _y, float _z) {
+	return std::min(_x, std::min(_y, _z));
+}
+
+float Max3(float _x, float _y, float _z) {
+	return std::max(_x, std::max(_y, _z));
+}
+
 struct vec2f {
 	float x, y;
 	vec2f() {
