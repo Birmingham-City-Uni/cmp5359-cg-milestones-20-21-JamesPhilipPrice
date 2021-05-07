@@ -3,14 +3,6 @@
 #include <iostream>
 #define PI 3.1415
 
-float Min3(float _x, float _y, float _z) {
-	return std::min(_x, std::min(_y, _z));
-}
-
-float Max3(float _x, float _y, float _z) {
-	return std::max(_x, std::max(_y, _z));
-}
-
 struct vec2f {
 	float x, y;
 	vec2f() {
@@ -184,6 +176,23 @@ struct vec3f {
 		return outputVec;
 	}
 
+	vec3f Cross(vec3f _v) {
+		vec3f outputVec;
+		outputVec.x = y * _v.z - z * _v.y;
+		outputVec.y = x * _v.z - z * _v.x;
+		outputVec.z = x * _v.y - y * _v.x;
+
+		return outputVec;
+	}
+
+	void Normalize() {
+		float n = (x * x) + (y * y) + (z * z);
+		if (n > 0) {
+			float fac = 1 / sqrt(n);
+			x *= fac, y *= fac, z *= fac;
+		}
+	}
+
 	float Length() {
 		return sqrt((x * x) + (y * y) + (z * z));
 	}
@@ -335,7 +344,24 @@ struct mat4 {
 		);
 	}
 
-	/*Source from Carlo Harvey (https://github.com/drcarlo/Software-Rasteriser-Starter) from geometry.h for finding inverse of 4x4 matrix*/
+	vec3f VectorMultiply(vec3f _vec) {
+		float a, b, c, w;
+
+		a = _vec.x * rowOne.x + _vec.y * rowTwo.x + _vec.z * rowThree.x + rowFour.x;
+		b = _vec.x * rowOne.y + _vec.y * rowTwo.y + _vec.z * rowThree.y + rowFour.y;
+		c = _vec.x * rowOne.z + _vec.y * rowTwo.z + _vec.z * rowThree.z + rowFour.z;
+		w = _vec.x * rowOne.w + _vec.y * rowTwo.w + _vec.z * rowThree.w + rowFour.w;
+
+		return vec3f(
+			a / w,
+			b / w,
+			c / w
+		);
+	}
+
+	/*
+	Source from Carlo Harvey (https://github.com/drcarlo/Software-Rasteriser-Starter) from geometry.h for finding inverse of 4x4 matrix
+	*/
 
 	// Compute the inverse of the matrix using the Gauss-Jordan (or reduced row) elimination method.
 	// Don't worry at this point if you don't understand how this works. We need to be able to efficiently 

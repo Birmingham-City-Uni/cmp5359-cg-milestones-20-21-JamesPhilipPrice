@@ -12,6 +12,14 @@
 #define WIDTH 1920
 #define HEIGHT 1080
 
+float Min3(float _x, float _y, float _z) {
+    return std::min(_x, std::min(_y, _z));
+}
+
+float Max3(float _x, float _y, float _z) {
+    return std::max(_x, std::max(_y, _z));
+}
+
 void TransformModel(Model* _model, mat4* _modelviewMat, mat4* _projectionMat) {
     //Run through all verticies in the model
     int vertCount = _model->GetFaceCount() * 3;
@@ -41,8 +49,10 @@ void TransformModel(Model* _model, mat4* _modelviewMat, mat4* _projectionMat) {
 vec3f TransformVert(vec3f& _vert, mat4& _modelviewMat, mat4& _projectionMat) {
     vec4f vertPos = vec4f(_vert.x, _vert.y, _vert.z, 1.0f);
     //Matrix-Vector multiplication with the modelview matrix, and then the projection matrix
-    vertPos = _modelviewMat.VectorMultiply(vertPos);
-    vertPos = _projectionMat.VectorMultiply(vertPos);
+    mat4 mvp_matrix = _modelviewMat.GetMatrixMultiply(_projectionMat);
+    //vertPos = _modelviewMat.VectorMultiply(vertPos);
+    //vertPos = _projectionMat.VectorMultiply(vertPos);
+    vertPos = mvp_matrix.VectorMultiply(vertPos);
     //Perform perspective division
     //std::cout << "X: " << vertPos.x << " Y: " << vertPos.y << " Z: " << vertPos.z << " W: " << vertPos.w << std::endl;
     vertPos.x /= vertPos.w;
@@ -59,7 +69,7 @@ int main()
     RenderUtils* renUtil = new RenderUtils(1);
 
     //Create the models to be rendered and transform them
-    Model* testModel = new Model("test.obj", gUtil);
+    Model* testModel = new Model("spheretest.obj", gUtil);
     Material* modelMat = new Material(
         "inputFiles/textures/checker.png",
         "inputFiles/textures/test.png",
@@ -81,11 +91,18 @@ int main()
     float nearClipping = 1.0f;
     float farClipping = 1000.0f;
 
+    float* depthBuffer = new float[WIDTH * HEIGHT];
+    for (int i = 0; i < WIDTH * HEIGHT; i++) {
+        depthBuffer[i] = farClipping;
+    }
+    //113.455f, 62.9185f, 14.8309f
+    //-0.8f,
+    //107.0f,
     //Create the camera for perspective rendering
     Camera* cam = new Camera(
-        vec3f(113.455f, 62.9185f, 14.8309f),
-        -0.8f,
-        107.0f,
+        vec3f(),
+        0.0f,
+        0.0f,
         39.6f,
         0.8716f * viewportModifier,
         0.4903f * viewportModifier,
@@ -116,10 +133,10 @@ int main()
 
     std::cout << "Applying transformations" << std::endl;
     //Manipulate the model using the matricies
-    TransformModel(testModel, &modelviewMatrix, &projectionMatrix);
+    //TransformModel(testModel, &modelviewMatrix, &projectionMatrix);
 
-    std::cout << "Culling faces from model" << std::endl;
-    testModel->CullFaces();
+    //std::cout << "Culling faces from model" << std::endl;
+    //testModel->CullFaces();
 
     //Start rendering
     std::cout << "Rendering..." << std::endl;
@@ -127,13 +144,13 @@ int main()
     //Create the z buffer in the render utility
     renUtil->SetupZBuffer();
     
-    for (int v = 0; v < testModel->GetFaceCount() * 3; v++) {
-        Vertex one = testModel->GetVertex(v);
-        if ((one.x < -1 || one.x > 1) && (one.y < -1 || one.y > 1) && (one.z < -1 || one.z > 1)) {
-            std::cout << "Non NDC detected at index: " << v << std::endl;
-        }
-        
-    }
+    //for (int v = 0; v < testModel->GetFaceCount() * 3; v++) {
+    //    Vertex one = testModel->GetVertex(v);
+    //    if ((one.x < -1 || one.x > 1) && (one.y < -1 || one.y > 1) && (one.z < -1 || one.z > 1)) {
+    //        std::cout << "Non NDC detected at index: " << v << std::endl;
+    //    }
+    //    
+    //}
 
     //Start rendering faces
     for (int v = 0; v < testModel->GetFaceCount(); v++) {
@@ -198,7 +215,50 @@ int main()
                 float w1 = QA.Cross(&QC).Length() / 2.0f;
                 float w2 = QA.Cross(&QB).Length() / 2.0f;
 
+                if (w0 >= 0 && w1 >= 0 && w2 >= 0) {
+                    w0 /= area;
+                    w1 /= area;
+                    w2 /= area;
+                    float oneOverZ = rasterv0.z * w0 + rasterv1.z * w1 + rasterv2.z * w2; //Depth test reciprocal
+                    float z = 1 / oneOverZ;
+                    //Depth buffer test
+                    if (z < depthBuffer[y * WIDTH + x]) {
+                        depthBuffer[y * WIDTH + x] = z;
 
+                        //Calculate texture coordinates
+                        vec2f st = st0 * w0 + st1 * w1 + st2 * w2;
+
+                        //Correcting for perspective distortion
+                        st *= z;
+
+                        vec3f v0Cam, v1Cam, v2Cam;
+                        v0Cam = viewMatrixInverse.VectorMultiply(v0);
+                        v1Cam = viewMatrixInverse.VectorMultiply(v1);
+                        v2Cam = viewMatrixInverse.VectorMultiply(v2);
+
+                        float px = (v0Cam.x / -v0Cam.z) * w0 + (v1Cam.x / -v1Cam.z) * w1 + (v2Cam.x / -v2Cam.z) * w2;
+                        float py = (v0Cam.y / -v0Cam.z) * w0 + (v1Cam.y / -v1Cam.z) * w1 + (v2Cam.y / -v2Cam.z) * w2;
+
+                        vec3f pt(px * z, py * z, -z);
+
+                        //Computeface normal
+                        vec3f n = (v1Cam - v0Cam).Cross(v2Cam - v0Cam);
+                        n.Normalize();
+                        vec3f viewDir = vec3f() - pt;
+                        viewDir.Normalize();
+
+                        //calculate shading of surface
+                        float nDotView = std::max(0.0f, n.Dot(&viewDir));
+
+                        const int M = 10;
+                        float checker = (fmod(st.x * M, 1.0) > 0.5) ^ (fmod(st.y * M, 1.0) < 0.5);
+                        float c = 0.3 * (1 - checker) + 0.7 * checker;
+                        nDotView *= c;
+
+                        RGB col = RGB(nDotView * 255, nDotView * 255, nDotView * 255);
+                        testImage->SetPixel(x, y, col);
+                    }
+                }
             }
         }
 

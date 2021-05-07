@@ -1,7 +1,7 @@
 #pragma once
 #include "Geometry.h"
 #include "ImageUtil.h"
-#include "GeometryCore.h"
+#include "Model.h"
 #include "Material.h"
 #include <SDL.h>
 #include <SDL_image.h>

@@ -50,7 +50,7 @@ public:
 			vec4f((nearPlane / (width / 2.0f)), 0.0f, (left + right) / (width / 2.0f), 0.0f),
 			vec4f(0.0f, nearPlane / (height / 2.0f), (top + bottom) / (height / 2.0f), 0.0f),
 			vec4f(0.0f, 0.0f, -((farPlane + nearPlane) / (farPlane - nearPlane)), (2 * farPlane * nearPlane) / (farPlane - nearPlane)),
-			vec4f(0.0f, 0.0f, -1.0f, 0.0f)
+			vec4f(0.0f, 0.0f, -1.0f, 1.0f)
 		);
 
 		return tempMat;
