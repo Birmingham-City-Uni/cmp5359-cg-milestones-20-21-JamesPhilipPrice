@@ -1,0 +1,2 @@
+VeniceHDRI: https://hdrihaven.com/hdri/?c=skies&h=venice_sunset
+BlueLagoonNight: https://hdrihaven.com/hdri/?c=night&h=blue_lagoon_night
