@@ -328,6 +328,10 @@ int main(int argc, char **argv)
         worldToCamera = lookAt(eye, target, up).inverse(); //cameraToWorld needs to be inverted for worldToCamera
         //worldToCamera[3][2] += 0.1f;
 
+        //Test
+        float minz = 10000;
+        float maxz = -10000;
+
         // Outer loop
         int textureIndex = 0;
         for (auto& model : renderables) {
@@ -383,18 +387,24 @@ int main(int argc, char **argv)
                 for (uint32_t y = y0; y <= y1; ++y) {
                     for (uint32_t x = x0; x <= x1; ++x) {
                         Vec3f pixelSample(x + 0.5, y + 0.5, 0);
+                        //Get edge distances from the points for barycentric weightings
                         float w0 = edgeFunction(v1Raster, v2Raster, pixelSample);
                         float w1 = edgeFunction(v2Raster, v0Raster, pixelSample);
                         float w2 = edgeFunction(v0Raster, v1Raster, pixelSample);
+                        //If all weightings are above 0 then the point is inside the triangle
                         if (w0 >= 0 && w1 >= 0 && w2 >= 0) {
+                            //Divide by the overall area of the triangle to get the correct weightings
                             w0 /= area;
                             w1 /= area;
                             w2 /= area;
                             float oneOverZ = v0Raster.z * w0 + v1Raster.z * w1 + v2Raster.z * w2;
                             float z = 1 / oneOverZ;
-                            // Depth-buffer test
+                            // Depth-buffer test to remove hidden faces and pixels not in the near and far clipping planes
                             if (z < depthBuffer[y * imageWidth + x]) {
                                 depthBuffer[y * imageWidth + x] = z;
+                                
+                                if (z < minz) minz = z;
+                                if (z > maxz) maxz = z;
 
                                 Vec2f st = st0 * w0 + st1 * w1 + st2 * w2;
 
@@ -451,6 +461,7 @@ int main(int argc, char **argv)
             }
             textureIndex++;
         }
+        std::cout << "Min z: " << minz << " Max z: " << maxz << std::endl;
 
         auto t_end = std::chrono::high_resolution_clock::now();
         auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();
