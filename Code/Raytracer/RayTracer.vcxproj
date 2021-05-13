@@ -160,6 +160,7 @@
     <ClInclude Include="Model.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Sphere.h" />
+    <ClInclude Include="Threadpool.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <ItemGroup>

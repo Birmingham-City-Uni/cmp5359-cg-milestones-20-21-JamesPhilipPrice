@@ -328,10 +328,6 @@ int main(int argc, char **argv)
         worldToCamera = lookAt(eye, target, up).inverse(); //cameraToWorld needs to be inverted for worldToCamera
         //worldToCamera[3][2] += 0.1f;
 
-        //Test
-        float minz = 10000;
-        float maxz = -10000;
-
         // Outer loop
         int textureIndex = 0;
         for (auto& model : renderables) {
@@ -402,9 +398,6 @@ int main(int argc, char **argv)
                             // Depth-buffer test to remove hidden faces and pixels not in the near and far clipping planes
                             if (z < depthBuffer[y * imageWidth + x]) {
                                 depthBuffer[y * imageWidth + x] = z;
-                                
-                                if (z < minz) minz = z;
-                                if (z > maxz) maxz = z;
 
                                 Vec2f st = st0 * w0 + st1 * w1 + st2 * w2;
 
@@ -461,7 +454,6 @@ int main(int argc, char **argv)
             }
             textureIndex++;
         }
-        std::cout << "Min z: " << minz << " Max z: " << maxz << std::endl;
 
         auto t_end = std::chrono::high_resolution_clock::now();
         auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();

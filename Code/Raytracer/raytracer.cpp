@@ -1,6 +1,7 @@
 ﻿// A practical implementation of the ray tracing algorithm.
 
 #include "Common.h"
+#include "Threadpool.h"
 #include "Hittable.h"
 #include "HittableList.h"
 #include "Material.h"
@@ -191,6 +192,32 @@ HittableList TestModel() {
     return world;
 }
 
+void LineRenderer(SDL_Surface* _screen, HittableList _world, int _y, int _spp, int _maxDepth, Camera* _cam) {
+    const float aspect_ratio = 16.0 / 9;
+    const int image_width = screen->w;
+    const int image_height = static_cast<int>(image_width / aspect_ratio);
+
+    const Colour black(0, 0, 0);
+    Colour pix_col(black);
+
+    for (int x = 0; x < screen->w; x++) {
+        pix_col = black;
+        for (int s = 0; s < _spp; s++) {
+            auto u = double(x + RandomDouble()) / (image_width - 1);
+            auto v = double(_y + RandomDouble()) / (image_height - 1);
+            Ray ray = _cam->GetRay(u, v);
+            pix_col = pix_col + RayColour(ray, _world, _maxDepth);
+        }
+        pix_col /= 255.f * _spp;
+        pix_col.x = sqrt(pix_col.x);
+        pix_col.y = sqrt(pix_col.y);
+        pix_col.z = sqrt(pix_col.z);
+        pix_col *= 255;
+        Uint32 colour = SDL_MapRGB(_screen->format, pix_col.x, pix_col.y, pix_col.z);
+        putpixel(_screen, x, _y, colour);
+    }
+}
+
 int main(int argc, char **argv)
 {
     // initialise SDL2
@@ -213,7 +240,7 @@ int main(int argc, char **argv)
     Camera cam(lookFrom, lookAt, vUp, 20, aspectRatio, aperture, distToFocus);
 
     //World setup
-    auto world = TestModel();
+    auto world = RandomizeWorld();
 
     const Colour white(255, 255, 255);
     const Colour black(0, 0, 0);
@@ -232,25 +259,14 @@ int main(int argc, char **argv)
         SDL_FillRect(screen, nullptr, SDL_MapRGB(screen->format, 0, 0, 0));
         SDL_RenderClear(renderer);
 
+        {
+            t_start = std::chrono::high_resolution_clock::now();
+            ThreadPool pool(std::thread::hardware_concurrency());
 
-        Colour pixelColour = black;
-        for (int y = 0; y < screen->h; ++y) {
-            std::cout << "Scanlines left: " << screen->h - y << std::endl;
-            for (int x = 0; x < screen->w; ++x) {
-                pixelColour = black;
-                for (int s = 0; s < spp; s++) {
-                    auto u = double(x + RandomDouble()) / (imageWidth - 1);
-                    auto v = double(y + RandomDouble()) / (imageHeight - 1);
-                    Ray ray = cam.GetRay(u, v);
-                    pixelColour = pixelColour + RayColour(ray, world, lightBounces);
-                }
-                pixelColour /= 255.f * spp;
-                pixelColour.x = sqrt(pixelColour.x);
-                pixelColour.y = sqrt(pixelColour.y);
-                pixelColour.z = sqrt(pixelColour.z);
-                pixelColour *= 255;
-                Uint32 colour = SDL_MapRGB(screen->format, pixelColour.x, pixelColour.y, pixelColour.z);
-                putpixel(screen, x, y, colour);
+            int start = screen->h - 1;
+            int step = screen->h / std::thread::hardware_concurrency();
+            for (int y = 0; y < screen->h; y++) {
+                pool.Enqueue(std::bind(LineRenderer, screen, world, y, spp, lightBounces, &cam));
             }
         }
 
