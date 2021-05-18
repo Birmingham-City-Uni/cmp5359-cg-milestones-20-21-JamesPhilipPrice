@@ -6,6 +6,7 @@
 #include "texture.h"
 #include <fstream>
 #include <chrono>
+#include <algorithm>
 
 #define M_PI 3.14159265359
 
@@ -113,8 +114,8 @@ float max3(const float &a, const float &b, const float &c)
 float edgeFunction(const Vec3f &a, const Vec3f &b, const Vec3f &c)
 { return (c[0] - a[0]) * (b[1] - a[1]) - (c[1] - a[1]) * (b[0] - a[0]); }
 
-const uint32_t imageWidth = 1920;
-const uint32_t imageHeight = 1080;
+const uint32_t imageWidth = 1280;
+const uint32_t imageHeight = 720;
 Matrix44f worldToCamera = {0.707107, -0.331295, 0.624695, 0, 0, 0.883452, 0.468521, 0, -0.707107, -0.331295, 0.624695, 0, -1.63871, -5.747777, -40.400412, 1};
 
 uint32_t ntris = 3156;

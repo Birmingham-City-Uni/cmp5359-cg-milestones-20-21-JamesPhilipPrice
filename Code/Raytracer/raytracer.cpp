@@ -179,7 +179,7 @@ HittableList TestModel() {
     Model* testModel = new Model("monka.obj");
     auto metal = make_shared<Metal>(Colour(0.7, 0.5, 0.1), 0.0);
     auto ground = make_shared<Lambertian>(Colour(0.5, 0.5, 0.5));
-    world.Add(make_shared<Sphere>(Point3f(0, -1000, 0), 1000, metal));
+    world.Add(make_shared<Sphere>(Point3f(0, -1000, 0), 1000, ground));
     std::cout << testModel->nVerts() << std::endl;
 
     for (int i = 0; i < testModel->nFaces(); i++) {
@@ -187,7 +187,15 @@ HittableList TestModel() {
         const Vec3f v1 = testModel->Vert(testModel->Face(i)[1]);
         const Vec3f v2 = testModel->Vert(testModel->Face(i)[2]);
 
-        world.Add(make_shared<Triangle>(v0 + transform, v1 + transform, v2 + transform, metal));
+		//Normals
+		const Vec3f vn0 = testModel->Norm(testModel->Face(i)[6]);
+		const Vec3f vn1 = testModel->Norm(testModel->Face(i)[7]);
+		const Vec3f vn2 = testModel->Norm(testModel->Face(i)[8]);
+
+		//Testing average norm calc
+		const Vec3f fNorm = Vec3f((vn0.x + vn1.x + vn2.x) / 3.0f, (vn0.y + vn1.y + vn2.y) / 3.0f, (vn0.z + vn1.z + vn2.z) / 3.0f);
+
+        world.Add(make_shared<Triangle>(v0 + transform, v1 + transform, v2 + transform, fNorm, metal));
     }
     return world;
 }
@@ -227,20 +235,21 @@ int main(int argc, char **argv)
     const auto aspectRatio = 16.0 / 9.0;
     const int imageWidth = screen->w;
     const int imageHeight = static_cast<int>(imageWidth / aspectRatio);
-    const int spp = 50;
+    const int spp = 10;
     const float scale = 1.f / spp;
-    const int lightBounces = 50;
+    const int lightBounces = 3
+		;
 
     //Camera values
-    Point3f lookFrom(0, 5, -5);
+    Point3f lookFrom(0, 2, -7);
     Point3f lookAt(0, 0, 0);
     Vec3f vUp(0, 1, 0);
-    auto distToFocus = 7;
+    auto distToFocus = sqrt(53.0f);
     auto aperture = 0.15;
     Camera cam(lookFrom, lookAt, vUp, 20, aspectRatio, aperture, distToFocus);
 
     //World setup
-    auto world = RandomizeWorld();
+    auto world = TestModel();
 
     const Colour white(255, 255, 255);
     const Colour black(0, 0, 0);
