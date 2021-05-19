@@ -18,8 +18,8 @@ public:
 	void Add(shared_ptr<Hittable> _object) { objects.push_back(_object); }
 
 	virtual bool Hit(const Ray& _r, double _tMin, double _tMax, HitRecord& _rec) const override;
+	virtual bool bounding_box(AABB& _outputBox) const override;
 
-private:
 	std::vector<shared_ptr<Hittable>> objects;
 
 };
@@ -36,4 +36,18 @@ bool HittableList::Hit(const Ray& _r, double _tMin, double _tMax, HitRecord& _re
 		}
 	}
 	return hitAnything;
+}
+
+inline bool HittableList::bounding_box(AABB& _outputBox) const{
+	if (objects.empty()) return false;
+
+	AABB tempBox;
+	bool firstBox = true;
+
+	for (const auto& object : objects) {
+		if (!object->bounding_box(tempBox)) return false;
+		_outputBox = firstBox ? tempBox : surrounding_box(_outputBox, tempBox);
+		firstBox = false;
+	}
+	return true;
 }

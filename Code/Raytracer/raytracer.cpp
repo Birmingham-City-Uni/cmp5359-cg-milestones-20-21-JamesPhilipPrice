@@ -8,6 +8,7 @@
 #include "Model.h"
 #include "Camera.h"
 #include "Sphere.h"
+#include "bvh.h"
 #include "Triangle.h"
 #include "SDL.h" 
 #include "tgaimage.h"
@@ -170,7 +171,8 @@ HittableList RandomizeWorld() {
     world.Add(make_shared<Sphere>(Point3f(-4, 1, 0), 1.0, material2));
     auto material3 = make_shared<Metal>(Colour(0.7, 0.6, 0.5), 0.0);
     world.Add(make_shared<Sphere>(Point3f(4, 1, 0), 1.0, material3));
-    return world;
+    //return world;
+    return HittableList(make_shared<BVHNode>(world));
 }
 
 HittableList TestModel() {
@@ -214,7 +216,8 @@ void LoadModelIntoHittable(Model* _mod, shared_ptr<Material> _mat, HittableList*
         const Vec3f vn2 = _mod->Norm(_mod->Face(i)[8]);
 
         //Testing average norm calc
-        Vec3f fNorm = (v1 - v0).crossProduct(v2 - v0);
+        Vec3f fNorm = Vec3f((vn0.x + vn1.x + vn2.x) / 3.0f, (vn0.y + vn1.y + vn2.y) / 3.0f, (vn0.z + vn1.z + vn2.z) / 3.0f);
+        //Vec3f fNorm = (v1 - v0).crossProduct(v2 - v0);
 
         _hittable->Add(make_shared<Triangle>(v0 + _transform, v1 + _transform, v2 + _transform, fNorm, _mat));
     }
@@ -226,8 +229,16 @@ HittableList EvaScene() {
     Model* eva = new Model("Objects/eva.obj");
     auto evaMat = make_shared<Lambertian>(Colour(0.8, 0.2, 0.8));
     LoadModelIntoHittable(eva, evaMat, &world, Vec3f(0, 0, 0));
+    Model* gunstore = new Model("Objects/gunstore.obj");
+    auto gunstoreMat = make_shared<Lambertian>(Colour(0.2, 0.2, 0.8));
+    LoadModelIntoHittable(gunstore, gunstoreMat, &world, Vec3f(0, 0, 0));
+    Model* skyscraper = new Model("Objects/skyscraper.obj");
+    auto skyscraperMat = make_shared<Lambertian>(Colour(0.8, 0.2, 0.2));
+    LoadModelIntoHittable(skyscraper, skyscraperMat, &world, Vec3f(0, 0, 0));
 
-    return world;
+
+    //return world;
+    return HittableList(make_shared<BVHNode>(world));
 }
 
 void LineRenderer(SDL_Surface* _screen, HittableList _world, int _y, int _spp, int _maxDepth, Camera* _cam, TGAImage* _exportImg) {
@@ -273,13 +284,12 @@ int main(int argc, char **argv)
 
     //Camera values
     //For testmodel scene
-    //Point3f lookFrom(0, 1, 5);
-    //Point3f lookAt(0, 1, 0);
+    //Point3f lookFrom(3, 5, 17);
+    //Point3f lookAt(0, 0, 0);
 
     //For EvaScene
     Point3f lookFrom(124.726, 62.9513, 0.0346);
-    //Point3f lookAt(111.86, 62.8965, 4.3578);
-    Point3f lookAt(111.86, 60.8965, 4.3578);
+    Point3f lookAt(111.86, 62.8965, 4.3578);
     Vec3f vUp(0, 1, 0);
     auto distToFocus = 40;
     auto aperture = 0.15;

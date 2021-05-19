@@ -1,5 +1,6 @@
 #pragma once
 #include "Ray.h"
+#include "aabb.h"
 #include "Common.h"
 
 class Material;
@@ -20,4 +21,5 @@ struct HitRecord {
 class Hittable {
 public: 
 	virtual bool Hit(const Ray& _r, double _tMin, double _tMax, HitRecord& _rec) const = 0;
+	virtual bool bounding_box(AABB& _outputBox) const = 0;
 };
