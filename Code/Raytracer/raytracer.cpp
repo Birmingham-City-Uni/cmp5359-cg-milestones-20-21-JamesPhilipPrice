@@ -230,7 +230,7 @@ HittableList EvaScene() {
     auto evaMat = make_shared<Lambertian>(Colour(0.8, 0.2, 0.8));
     LoadModelIntoHittable(eva, evaMat, &world, Vec3f(0, 0, 0));
     Model* gunstore = new Model("Objects/gunstore.obj");
-    auto gunstoreMat = make_shared<Lambertian>(Colour(0.2, 0.2, 0.8));
+    auto gunstoreMat = make_shared<Metal>(Colour(0.2, 0.2, 0.8), 0.2);
     LoadModelIntoHittable(gunstore, gunstoreMat, &world, Vec3f(0, 0, 0));
     Model* skyscraper = new Model("Objects/skyscraper.obj");
     auto skyscraperMat = make_shared<Lambertian>(Colour(0.8, 0.2, 0.2));
