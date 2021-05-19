@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\api.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\bssrdf.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\camera.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\efloat.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\error.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\fileutil.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\film.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\filter.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\floatfile.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\geometry.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\imageio.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\integrator.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\interaction.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\interpolation.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\light.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\lightdistrib.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\lowdiscrepancy.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\material.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\medium.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\memory.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\microfacet.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\parallel.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\paramset.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\parser.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\primitive.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\progressreporter.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\quaternion.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\reflection.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\sampler.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\sampling.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\scene.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\shape.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\sobolmatrices.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\spectrum.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\stats.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\texture.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\transform.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\accelerators\bvh.cpp">
+      <Filter>accelerators</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\accelerators\kdtreeaccel.cpp">
+      <Filter>accelerators</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\cameras\environment.cpp">
+      <Filter>cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\cameras\orthographic.cpp">
+      <Filter>cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\cameras\perspective.cpp">
+      <Filter>cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\cameras\realistic.cpp">
+      <Filter>cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\ArHosekSkyModel.c">
+      <Filter>ext</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\lodepng.cpp">
+      <Filter>ext</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\rply.cpp">
+      <Filter>ext</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\targa.cpp">
+      <Filter>ext</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\filters\box.cpp">
+      <Filter>filters</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\filters\gaussian.cpp">
+      <Filter>filters</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\filters\mitchell.cpp">
+      <Filter>filters</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\filters\sinc.cpp">
+      <Filter>filters</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\filters\triangle.cpp">
+      <Filter>filters</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\ao.cpp">
+      <Filter>integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\bdpt.cpp">
+      <Filter>integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\directlighting.cpp">
+      <Filter>integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\mlt.cpp">
+      <Filter>integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\path.cpp">
+      <Filter>integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\sppm.cpp">
+      <Filter>integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\volpath.cpp">
+      <Filter>integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\whitted.cpp">
+      <Filter>integrators</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\diffuse.cpp">
+      <Filter>lights</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\distant.cpp">
+      <Filter>lights</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\goniometric.cpp">
+      <Filter>lights</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\infinite.cpp">
+      <Filter>lights</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\point.cpp">
+      <Filter>lights</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\projection.cpp">
+      <Filter>lights</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\spot.cpp">
+      <Filter>lights</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\disney.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\fourier.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\glass.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\hair.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\kdsubsurface.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\matte.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\metal.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\mirror.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\mixmat.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\plastic.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\substrate.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\subsurface.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\translucent.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\uber.cpp">
+      <Filter>materials</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\media\grid.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\media\homogeneous.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\halton.cpp">
+      <Filter>samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\maxmin.cpp">
+      <Filter>samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\random.cpp">
+      <Filter>samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\sobol.cpp">
+      <Filter>samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\stratified.cpp">
+      <Filter>samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\zerotwosequence.cpp">
+      <Filter>samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\cone.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\curve.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\cylinder.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\disk.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\heightfield.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\hyperboloid.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\loopsubdiv.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\nurbs.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\paraboloid.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\plymesh.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\sphere.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\triangle.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\bilerp.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\checkerboard.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\constant.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\dots.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\fbm.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\imagemap.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\marble.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\mix.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\ptex.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\scale.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\uv.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\windy.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\wrinkled.cpp">
+      <Filter>textures</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\api.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\bssrdf.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\camera.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\efloat.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\error.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\fileutil.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\film.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\filter.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\floatfile.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\geometry.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\imageio.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\integrator.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\interaction.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\interpolation.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\light.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\lowdiscrepancy.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\material.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\medium.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\memory.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\microfacet.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\mipmap.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\parallel.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\paramset.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\parser.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\pbrt.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\primitive.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\progressreporter.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\quaternion.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\reflection.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\rng.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\sampler.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\sampling.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\scene.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\shape.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\sobolmatrices.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\spectrum.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\stats.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\stringprint.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\texture.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\core\transform.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\accelerators\bvh.h">
+      <Filter>accelerators</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\accelerators\kdtreeaccel.h">
+      <Filter>accelerators</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\cameras\environment.h">
+      <Filter>cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\cameras\orthographic.h">
+      <Filter>cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\cameras\perspective.h">
+      <Filter>cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\cameras\realistic.h">
+      <Filter>cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\ArHosekSkyModel.h">
+      <Filter>ext</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\ArHosekSkyModelData_CIEXYZ.h">
+      <Filter>ext</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\ArHosekSkyModelData_RGB.h">
+      <Filter>ext</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\ArHosekSkyModelData_Spectral.h">
+      <Filter>ext</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\lodepng.h">
+      <Filter>ext</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\rply.h">
+      <Filter>ext</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\targa.h">
+      <Filter>ext</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\filters\box.h">
+      <Filter>filters</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\filters\gaussian.h">
+      <Filter>filters</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\filters\mitchell.h">
+      <Filter>filters</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\filters\sinc.h">
+      <Filter>filters</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\filters\triangle.h">
+      <Filter>filters</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\ao.h">
+      <Filter>integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\bdpt.h">
+      <Filter>integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\directlighting.h">
+      <Filter>integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\mlt.h">
+      <Filter>integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\path.h">
+      <Filter>integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\sppm.h">
+      <Filter>integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\volpath.h">
+      <Filter>integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\integrators\whitted.h">
+      <Filter>integrators</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\diffuse.h">
+      <Filter>lights</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\distant.h">
+      <Filter>lights</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\goniometric.h">
+      <Filter>lights</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\infinite.h">
+      <Filter>lights</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\point.h">
+      <Filter>lights</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\projection.h">
+      <Filter>lights</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\lights\spot.h">
+      <Filter>lights</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\disney.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\fourier.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\glass.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\hair.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\kdsubsurface.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\matte.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\metal.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\mirror.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\mixmat.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\plastic.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\substrate.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\subsurface.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\translucent.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials\uber.h">
+      <Filter>materials</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\media\grid.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\media\homogeneous.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\halton.h">
+      <Filter>samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\maxmin.h">
+      <Filter>samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\random.h">
+      <Filter>samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\sobol.h">
+      <Filter>samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\stratified.h">
+      <Filter>samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\samplers\zerotwosequence.h">
+      <Filter>samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\cone.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\curve.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\cylinder.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\disk.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\heightfield.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\hyperboloid.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\loopsubdiv.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\nurbs.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\paraboloid.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\plymesh.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\sphere.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\shapes\triangle.h">
+      <Filter>shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\bilerp.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\checkerboard.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\constant.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\dots.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\fbm.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\imagemap.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\marble.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\mix.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\ptex.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\scale.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\uv.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\windy.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\textures\wrinkled.h">
+      <Filter>textures</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\glog">
+      <Filter>ext</Filter>
+    </None>
+    <None Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\openexr">
+      <Filter>ext</Filter>
+    </None>
+    <None Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\ptex">
+      <Filter>ext</Filter>
+    </None>
+    <None Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\zlib">
+      <Filter>ext</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="accelerators">
+      <UniqueIdentifier>{D800BE44-4F02-36F0-95EF-4348934CBC93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cameras">
+      <UniqueIdentifier>{FBC8C7EE-97F7-3A0F-9C85-8295A309F4A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{EDE96D41-65B5-3E1E-90BA-F42FF3EA08DA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ext">
+      <UniqueIdentifier>{C62E174F-8254-3581-AE76-A011270B87A9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="filters">
+      <UniqueIdentifier>{812438FB-C9FE-3F01-83E2-4A85614B3697}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="integrators">
+      <UniqueIdentifier>{DB0E819F-EBF6-382D-9F7C-D3A13FF553EF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lights">
+      <UniqueIdentifier>{F76620E1-C9D0-399E-89E8-B58D86C7B55C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="materials">
+      <UniqueIdentifier>{CE29C619-C2DF-3474-BB3C-DA1E7959D801}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="media">
+      <UniqueIdentifier>{45D19B71-FD0F-37DE-9A01-75E3DC35A91C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="samplers">
+      <UniqueIdentifier>{1CA513DE-0381-3899-B22E-B2BD8DEBE489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shapes">
+      <UniqueIdentifier>{A98914A6-2821-367B-AFDE-B6078FF78B05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="textures">
+      <UniqueIdentifier>{4BFDB116-AC9E-3FA3-AF14-1EE867DA70F3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

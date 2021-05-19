@@ -1,0 +1,38 @@
+^E:\PROJECTS\GITHUB\CMP5359-CG-MILESTONES-20-21-JAMESPHILIPPRICE\CODE\PBRT\PBRT\CMAKEFILES\0A1E6D8AFF0D4064A076398B962FEC7D\ELUT.H.RULE
+setlocal
+cd E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\src\ext\openexr\IlmBase\Half
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\src\ext\openexr\IlmBase\Half\Release\eLut.exe > E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/PBRT/src/ext/openexr/IlmBase/Half/eLut.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\PROJECTS\GITHUB\CMP5359-CG-MILESTONES-20-21-JAMESPHILIPPRICE\CODE\PBRT\PBRT\CMAKEFILES\0A1E6D8AFF0D4064A076398B962FEC7D\TOFLOAT.H.RULE
+setlocal
+cd E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\src\ext\openexr\IlmBase\Half
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\src\ext\openexr\IlmBase\Half\Release\toFloat.exe > E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/PBRT/src/ext/openexr/IlmBase/Half/toFloat.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\PROJECTS\GITHUB\CMP5359-CG-MILESTONES-20-21-JAMESPHILIPPRICE\CODE\PBRT\PBRT-V3_CLONE\SRC\EXT\OPENEXR\ILMBASE\HALF\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/pbrt-v3_clone -BE:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/PBRT --check-stamp-file E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/PBRT/src/ext/openexr/IlmBase/Half/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

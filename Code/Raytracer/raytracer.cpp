@@ -10,6 +10,7 @@
 #include "Sphere.h"
 #include "Triangle.h"
 #include "SDL.h" 
+#include "tgaimage.h"
 #include <fstream>
 #include <chrono>
 
@@ -27,8 +28,8 @@ void init() {
         "Software Ray Tracer",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
-        640,
-        480,
+        1280,
+        720,
         0
     );
 
@@ -193,14 +194,43 @@ HittableList TestModel() {
 		const Vec3f vn2 = testModel->Norm(testModel->Face(i)[8]);
 
 		//Testing average norm calc
-		const Vec3f fNorm = Vec3f((vn0.x + vn1.x + vn2.x) / 3.0f, (vn0.y + vn1.y + vn2.y) / 3.0f, (vn0.z + vn1.z + vn2.z) / 3.0f);
+		//Based on verts const Vec3f fNorm = Vec3f((vn0.x + vn1.x + vn2.x) / 3.0f, (vn0.y + vn1.y + vn2.y) / 3.0f, (vn0.z + vn1.z + vn2.z) / 3.0f);
+        Vec3f fNorm = (v1 - v0).crossProduct(v2 - v0);
 
         world.Add(make_shared<Triangle>(v0 + transform, v1 + transform, v2 + transform, fNorm, metal));
     }
     return world;
 }
 
-void LineRenderer(SDL_Surface* _screen, HittableList _world, int _y, int _spp, int _maxDepth, Camera* _cam) {
+void LoadModelIntoHittable(Model* _mod, shared_ptr<Material> _mat, HittableList* _hittable, Vec3f _transform) {
+    for (int i = 0; i < _mod->nFaces(); i++) {
+        const Vec3f v0 = _mod->Vert(_mod->Face(i)[0]);
+        const Vec3f v1 = _mod->Vert(_mod->Face(i)[1]);
+        const Vec3f v2 = _mod->Vert(_mod->Face(i)[2]);
+
+        //Normals
+        const Vec3f vn0 = _mod->Norm(_mod->Face(i)[6]);
+        const Vec3f vn1 = _mod->Norm(_mod->Face(i)[7]);
+        const Vec3f vn2 = _mod->Norm(_mod->Face(i)[8]);
+
+        //Testing average norm calc
+        Vec3f fNorm = (v1 - v0).crossProduct(v2 - v0);
+
+        _hittable->Add(make_shared<Triangle>(v0 + _transform, v1 + _transform, v2 + _transform, fNorm, _mat));
+    }
+}
+
+HittableList EvaScene() {
+    HittableList world;
+
+    Model* eva = new Model("Objects/eva.obj");
+    auto evaMat = make_shared<Lambertian>(Colour(0.8, 0.2, 0.8));
+    LoadModelIntoHittable(eva, evaMat, &world, Vec3f(0, 0, 0));
+
+    return world;
+}
+
+void LineRenderer(SDL_Surface* _screen, HittableList _world, int _y, int _spp, int _maxDepth, Camera* _cam, TGAImage* _exportImg) {
     const float aspect_ratio = 16.0 / 9;
     const int image_width = screen->w;
     const int image_height = static_cast<int>(image_width / aspect_ratio);
@@ -222,6 +252,7 @@ void LineRenderer(SDL_Surface* _screen, HittableList _world, int _y, int _spp, i
         pix_col.z = sqrt(pix_col.z);
         pix_col *= 255;
         Uint32 colour = SDL_MapRGB(_screen->format, pix_col.x, pix_col.y, pix_col.z);
+        _exportImg->set(x, _y, TGAColor((unsigned char)pix_col.x, (unsigned char)pix_col.y, (unsigned char)pix_col.z, (unsigned char)1));
         putpixel(_screen, x, _y, colour);
     }
 }
@@ -234,22 +265,28 @@ int main(int argc, char **argv)
     //Image values
     const auto aspectRatio = 16.0 / 9.0;
     const int imageWidth = screen->w;
-    const int imageHeight = static_cast<int>(imageWidth / aspectRatio);
-    const int spp = 10;
+    const int imageHeight = screen->h;
+    std::cout << "Image size:" << imageWidth << ", " << imageHeight << std::endl;
+    const int spp = 5;
     const float scale = 1.f / spp;
-    const int lightBounces = 3
-		;
+    const int lightBounces = 3;
 
     //Camera values
-    Point3f lookFrom(0, 2, -7);
-    Point3f lookAt(0, 0, 0);
+    //For testmodel scene
+    //Point3f lookFrom(0, 1, 5);
+    //Point3f lookAt(0, 1, 0);
+
+    //For EvaScene
+    Point3f lookFrom(124.726, 62.9513, 0.0346);
+    //Point3f lookAt(111.86, 62.8965, 4.3578);
+    Point3f lookAt(111.86, 60.8965, 4.3578);
     Vec3f vUp(0, 1, 0);
-    auto distToFocus = sqrt(53.0f);
+    auto distToFocus = 40;
     auto aperture = 0.15;
     Camera cam(lookFrom, lookAt, vUp, 20, aspectRatio, aperture, distToFocus);
 
     //World setup
-    auto world = TestModel();
+    auto world = EvaScene();
 
     const Colour white(255, 255, 255);
     const Colour black(0, 0, 0);
@@ -259,6 +296,7 @@ int main(int argc, char **argv)
     Colour pix_col(black);
 
     SDL_Event e;
+    TGAImage* exportImage = new TGAImage(imageWidth, imageHeight, TGAImage::RGB);
     bool running = true;
     while (running) {
 
@@ -275,13 +313,17 @@ int main(int argc, char **argv)
             int start = screen->h - 1;
             int step = screen->h / std::thread::hardware_concurrency();
             for (int y = 0; y < screen->h; y++) {
-                pool.Enqueue(std::bind(LineRenderer, screen, world, y, spp, lightBounces, &cam));
+                pool.Enqueue(std::bind(LineRenderer, screen, world, y, spp, lightBounces, &cam, exportImage));
             }
         }
 
         auto t_end = std::chrono::high_resolution_clock::now();
         auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();
         std::cerr << "Frame render time:  " << passedTime << " ms" << std::endl;
+
+        //Export TGA image
+        exportImage->flip_vertically();
+        exportImage->write_tga_file("RayRender.tga");
 
         SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, screen);
         if (texture == NULL) {

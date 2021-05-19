@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\CMakeFiles\d4e9c332e0dd2fa58654ed8fd4e055c2\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{270FC5FA-169B-3A02-8D0F-4774F400E863}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

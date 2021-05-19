@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\openexr\IlmBase\Half\half.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\CMakeFiles\0a1e6d8aff0d4064a076398b962fec7d\eLut.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\CMakeFiles\0a1e6d8aff0d4064a076398b962fec7d\toFloat.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\openexr\IlmBase\Half\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{270FC5FA-169B-3A02-8D0F-4774F400E863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2810DFAF-17F7-37B0-A2E7-63E5E5F4A2BA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

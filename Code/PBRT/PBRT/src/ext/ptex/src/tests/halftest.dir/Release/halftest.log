@@ -1,0 +1,4 @@
+﻿  Building Custom Rule E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/pbrt-v3_clone/src/ext/ptex/src/tests/CMakeLists.txt
+  halftest.cpp
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\ext\ptex\src\tests\halftest.cpp(294,5): warning C4305: 'initializing': truncation from 'double' to 'float'
+  halftest.vcxproj -> E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\src\ext\ptex\src\tests\Release\halftest.exe

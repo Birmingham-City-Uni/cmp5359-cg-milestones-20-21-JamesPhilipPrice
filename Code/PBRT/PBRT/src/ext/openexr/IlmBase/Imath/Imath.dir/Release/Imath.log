@@ -1,0 +1,10 @@
+﻿  Building Custom Rule E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/pbrt-v3_clone/src/ext/openexr/IlmBase/Imath/CMakeLists.txt
+  ImathBox.cpp
+  ImathRandom.cpp
+  ImathColorAlgo.cpp
+  ImathShear.cpp
+  ImathFun.cpp
+  ImathVec.cpp
+  ImathMatrixAlgo.cpp
+  Generating Code...
+  Imath.vcxproj -> E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\src\ext\openexr\IlmBase\Imath\Release\Imath.lib

@@ -1,0 +1,128 @@
+# Blender MTL File: 'WhiteboxTwo1.blend'
+# Material Count: 11
+
+newmtl Dome
+Ns 448.669399
+Ka 0.106061 0.106061 0.106061
+Kd 0.800000 0.013694 0.009949
+Ks 0.675758 0.675758 0.675758
+Ke 5.352399 0.139252 0.092525
+Ni 0.000000
+d 1.000000
+illum 3
+
+newmtl Dome_Green
+Ns 704.661142
+Ka 0.106061 0.106061 0.106061
+Kd 0.000000 0.800000 0.008127
+Ks 0.560606 0.560606 0.560606
+Ke 0.000000 0.500000 0.004925
+Ni 0.000000
+d 1.000000
+illum 3
+
+newmtl Gun_Store
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Gun_Store\\Gun_Store_Main_nor.png
+map_Kd E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Gun_Store\\Gun_Store_Main_base.png
+map_Ns E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Gun_Store\\Gun_Store_Main_rough.png
+refl E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Gun_Store\\Gun_Store_Main_metal.png
+
+newmtl Material
+Ns 323.999994
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Skyscraper\\skyscraper_base.png
+map_Ns E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Skyscraper\\skyscraper_rough.png
+refl E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Skyscraper\\skyscraper_metal.png
+
+newmtl Material.001
+Ns 323.999994
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Material.002
+Ns 323.999994
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Material.003
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Handle\\Handle_nor.png
+map_Kd E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Handle\\Handle_base.png
+map_Ns E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Handle\\Handle_rough.png
+refl E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\Handle\\Handle_metal.png
+
+newmtl Material.004
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\wierd_base.png
+map_Ns E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\wierd_rough.png
+refl E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Textures\\wierd_metal.png
+
+newmtl Material.005
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.006
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\Code\\Rasterizer\\Textures\\Floor.png
+
+newmtl Material__5
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd E:\\Projects\\Github\\cmp5359-cg-milestones-20-21-JamesPhilipPrice\\PreProductionPlanning\\Models\\eva-01\\textures\\textura.png

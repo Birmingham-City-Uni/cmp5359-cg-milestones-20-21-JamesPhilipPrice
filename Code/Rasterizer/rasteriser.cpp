@@ -4,6 +4,8 @@
 #include "SDL.h" 
 #include "model.h"
 #include "texture.h"
+#include "tgaimage.h"
+#include "Lighting.h"
 #include <fstream>
 #include <chrono>
 #include <algorithm>
@@ -147,6 +149,45 @@ void init() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 }
 
+TGAColor getpixel(SDL_Surface* surface, int x, int y)
+{
+    int bpp = surface->format->BytesPerPixel;
+    /* Here p is the address to the pixel we want to retrieve */
+    Uint8* p = (Uint8*)surface->pixels + y * surface->pitch + x * bpp;
+    SDL_Color rgb;
+    switch (bpp)
+    {
+    case 1:
+        SDL_GetRGB(*p, surface->format, &rgb.r, &rgb.g, &rgb.b);
+        return TGAColor((unsigned char)rgb.r, (unsigned char)rgb.g, (unsigned char)rgb.b, (unsigned char)1);
+        break;
+
+    case 2:
+        SDL_GetRGB(*(Uint16*)p, surface->format, &rgb.r, &rgb.g, &rgb.b);
+        return TGAColor((unsigned char)rgb.r, (unsigned char)rgb.g, (unsigned char)rgb.b, (unsigned char)1);
+        break;
+
+    case 3:
+        if (SDL_BYTEORDER == SDL_BIG_ENDIAN) {
+            SDL_GetRGB(p[0] << 16 | p[1] << 8 | p[2], surface->format, &rgb.r, &rgb.g, &rgb.b);
+            return TGAColor((unsigned char)rgb.r, (unsigned char)rgb.g, (unsigned char)rgb.b, (unsigned char)1);
+        } 
+        else {
+            SDL_GetRGB(p[0] | p[1] << 8 | p[2] << 16, surface->format, &rgb.r, &rgb.g, &rgb.b);
+            return TGAColor((unsigned char)rgb.r, (unsigned char)rgb.g, (unsigned char)rgb.b, (unsigned char)1);
+        }   
+        break;
+
+    case 4:
+        SDL_GetRGB(*(Uint32*)p, surface->format, &rgb.r, &rgb.g, &rgb.b);
+        return TGAColor((unsigned char)rgb.r, (unsigned char)rgb.g, (unsigned char)rgb.b, (unsigned char)1);
+        break;
+
+    default:
+        return TGAColor();       /* shouldn't happen, but avoids warnings */
+    }
+}
+
 void putpixel(SDL_Surface* surface, int x, int y, Uint32 pixel)
 {
     int bpp = surface->format->BytesPerPixel;
@@ -270,6 +311,10 @@ int main(int argc, char **argv)
         textures.push_back(new Texture("Textures/Floor.png"));
     }
 
+    LightSystem* lights = new LightSystem();
+    lights->SetAmbientLight(RGB(0.1f, 0.1f, 0.1f));
+    lights->AddDirLight(RGB(1.0f, 1.0f, 1.0f), Vec3f(1, 0, 0));
+
     //ntris = model->nverts();
 
     // initialise SDL2
@@ -299,6 +344,9 @@ int main(int argc, char **argv)
     float camAngleY = 0.0f;
     SDL_Event e;
     bool running = true;
+
+    int spp = 5;
+    TGAImage* exportImage = new TGAImage(imageWidth, imageHeight, TGAImage::RGB);
     while (running) {
 
         auto t_start = std::chrono::high_resolution_clock::now();
@@ -358,9 +406,15 @@ int main(int argc, char **argv)
                 Vec2f st1 = st[stindices[i * 3 + 1]];
                 Vec2f st2 = st[stindices[i * 3 + 2]];*/
 
+                //Texture coords
                 Vec2f st0 = model->vt(model->face(i)[1]);
                 Vec2f st1 = model->vt(model->face(i)[4]);
                 Vec2f st2 = model->vt(model->face(i)[7]);
+
+                //Vertex norms
+                Vec3f sn0 = model->vn(model->face(i)[2]);
+                Vec3f sn1 = model->vn(model->face(i)[5]);
+                Vec3f sn2 = model->vn(model->face(i)[8]);
 
                 st0 *= v0Raster.z, st1 *= v1Raster.z, st2 *= v2Raster.z;
 
@@ -383,6 +437,7 @@ int main(int argc, char **argv)
                 // Inner loop
                 for (uint32_t y = y0; y <= y1; ++y) {
                     for (uint32_t x = x0; x <= x1; ++x) {
+
                         Vec3f pixelSample(x + 0.5, y + 0.5, 0);
                         //Get edge distances from the points for barycentric weightings
                         float w0 = edgeFunction(v1Raster, v2Raster, pixelSample);
@@ -400,7 +455,11 @@ int main(int argc, char **argv)
                             if (z < depthBuffer[y * imageWidth + x]) {
                                 depthBuffer[y * imageWidth + x] = z;
 
+                                //Getting the texture coords from the weighting
                                 Vec2f st = st0 * w0 + st1 * w1 + st2 * w2;
+
+                                //Getting the normal with the weighting for smooth shading
+                                Vec3f sn = sn0 * w0 + sn1 * w1 + sn2 * w2;
 
                                 st *= z;
 
@@ -432,20 +491,20 @@ int main(int argc, char **argv)
                                 Vec3f viewDirection = -pt;
                                 viewDirection.normalize();
 
+                                //Good for flat shading
                                 float nDotView = std::max(0.f, n.dotProduct(viewDirection));
 
-                                // The final color is the result of the fraction multiplied by the
-                                // checkerboard pattern.
-                                const int M = 10;
-                                float checker = (fmod(st.x * M, 1.0) > 0.5) ^ (fmod(st.y * M, 1.0) < 0.5);
-                                float c = 0.3 * (1 - checker) + 0.7 * checker;
-                                nDotView *= c;
                                 frameBuffer[y * imageWidth + x].x = nDotView * 255;
                                 frameBuffer[y * imageWidth + x].y = nDotView * 255;
                                 frameBuffer[y * imageWidth + x].z = nDotView * 255;
 
                                 //Uint32 colour = SDL_MapRGB(screen->format, nDotView * 255, nDotView * 255, nDotView * 255);
                                 RGB texturePixelColour = textures[textureIndex]->GetPixelFromUV(st.x, 1 - st.y);
+                                RGB lighting = lights->GetLightingFromScene(sn);
+                                texturePixelColour *= (lighting);
+                                //Write to export image
+                                exportImage->set(x, y, TGAColor((unsigned char)texturePixelColour.r, (unsigned char)texturePixelColour.g, (unsigned char)texturePixelColour.b, (unsigned char)1));
+
                                 Uint32 colour = SDL_MapRGB(screen->format, texturePixelColour.r, texturePixelColour.g, texturePixelColour.b);
                                 putpixel(screen, x, y, colour);
                             }
@@ -459,6 +518,9 @@ int main(int argc, char **argv)
         auto t_end = std::chrono::high_resolution_clock::now();
         auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();
         std::cerr << "Frame render time:  " << passedTime << " ms" << std::endl;
+
+        //Export to TGA
+        exportImage->write_tga_file("Render.tga");
 
         SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, screen);
         if (texture == NULL) {

@@ -6,6 +6,34 @@ struct RGB {
     float r, g, b;
     RGB() : r(0), g(0), b(0){}
     RGB(float _r, float _g, float _b) : r(_r), g(_g), b(_b) {}
+
+    void operator += (RGB _col) {
+        r += _col.r;
+        g += _col.g;
+        b += _col.b;
+    }
+
+    void operator *= (float _v) {
+        r *= _v;
+        g *= _v;
+        b *= _v;
+    }
+    
+    void operator *= (RGB _col) {
+        r *= _col.r;
+        g *= _col.g;
+        b *= _col.b;
+    }
+    
+    RGB operator * (float _v) {
+        return RGB(r * _v, g * _v, b * _v);
+    }
+
+
+
+    RGB operator / (float _v) {
+        return RGB(r / _v, g / _v, b / _v);
+    }
 };
 
 class Texture {
@@ -18,7 +46,7 @@ public:
 		pixels = new RGB[width * height];
 		for (int y = 0; y < width; y++) {
 			for (int x = 0; x < height; x++) {
-                Uint32 pixCol =  GetPixelFromSurface(tempSurface, x, y);
+                Uint32 pixCol = GetPixelFromSurface(tempSurface, x, y);
                 SDL_Color rgb;
                 SDL_GetRGB(pixCol, format, &rgb.r, &rgb.g, &rgb.b);
                 pixels[y * (width - 1) + x] = RGB(rgb.r, rgb.g, rgb.b);

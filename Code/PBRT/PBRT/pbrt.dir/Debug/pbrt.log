@@ -1,0 +1,16 @@
+﻿  Building Custom Rule E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/pbrt-v3_clone/CMakeLists.txt
+  api.cpp
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\src\ext\glog\glog/logging.h(714,1): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\materials/hair.h(168): message : see reference to function template instantiation 'std::string *google::Check_LTImpl<unsigned __int64,__int64>(const T1 &,const T2 &,const char *)' being compiled
+          with
+          [
+              T1=unsigned __int64,
+              T2=__int64
+          ]
+  bssrdf.cpp
+  camera.cpp
+  efloat.cpp
+  error.cpp
+  fileutil.cpp
+  film.cpp
+  filter.cpp

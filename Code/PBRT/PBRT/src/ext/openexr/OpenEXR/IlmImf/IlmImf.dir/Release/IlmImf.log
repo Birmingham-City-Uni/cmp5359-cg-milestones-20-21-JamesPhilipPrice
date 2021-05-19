@@ -1,0 +1,12 @@
+﻿  Generating b44ExpLogTable.h
+  Generating dwaLookups.h
+   Building acceleration for DwaCompressor, 0.00 %
+   Building acceleration for DwaCompressor, 24.41 %
+   Building acceleration for DwaCompressor, 48.83 %
+   Building acceleration for DwaCompressor, 73.24 %
+   Building acceleration for DwaCompressor, 97.66 %
+  Building Custom Rule E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/pbrt-v3_clone/src/ext/openexr/OpenEXR/IlmImf/CMakeLists.txt
+  ImfB44Compressor.cpp
+  ImfDwaCompressor.cpp
+  Generating Code...
+  IlmImf.vcxproj -> E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\src\ext\openexr\OpenEXR\IlmImf\Release\IlmImf.lib

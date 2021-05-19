@@ -24,8 +24,15 @@ Model::Model(const char *filename) : verts_(), faces_() {
             iss >> trash;
             iss >> trash;
             Vec2f vt;
-            for (int i=0; i<2; i++) iss >> vt[i]; //FIX vt import marching and indexing
+            for (int i = 0; i < 2; i++) iss >> vt[i]; //FIX vt import marching and indexing
             vts_.push_back(vt);
+        }
+        else if (!line.compare(0, 3, "vn ")) {
+            iss >> trash;
+            Vec3f vn;
+            for (int i = 0; i < 3; i++) iss >> vn[i];
+            std::cout << vn.x << " " << vn.y << " " << vn.z << std::endl;
+            vns_.push_back(vn);
         }
         else if (!line.compare(0, 2, "f ")) { // f v1/vt1/vn1 v2/vt2/vn2 v3/vt3/vn3 ... making assumption v1==vt1 etc.
             std::vector<int> f;
@@ -66,5 +73,10 @@ Vec3f Model::vert(int i) {
 
 Vec2f Model::vt(int i) {
     return vts_[i];
+}
+
+Vec3f Model::vn(int i)
+{
+    return vns_[i];
 }
 

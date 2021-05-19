@@ -1,0 +1,4 @@
+﻿  Building Custom Rule E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/pbrt-v3_clone/CMakeLists.txt
+  cyhair2pbrt.cpp
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\pbrt-v3_clone\src\tools\cyhair2pbrt.cpp(428,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  cyhair2pbrt.vcxproj -> E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\PBRT\PBRT\Debug\cyhair2pbrt.exe

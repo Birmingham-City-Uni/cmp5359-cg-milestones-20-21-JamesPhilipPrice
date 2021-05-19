@@ -1,0 +1,30 @@
+^E:\PROJECTS\GITHUB\CMP5359-CG-MILESTONES-20-21-JAMESPHILIPPRICE\CODE\PBRT\PBRT\CMAKEFILES\96B6A2DDDA0B5B5405EDB4D2D0376766\B44EXPLOGTABLE.H.RULE
+setlocal
+Release\b44ExpLogTable > E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/PBRT/src/ext/openexr/OpenEXR/IlmImf/b44ExpLogTable.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\PROJECTS\GITHUB\CMP5359-CG-MILESTONES-20-21-JAMESPHILIPPRICE\CODE\PBRT\PBRT\CMAKEFILES\96B6A2DDDA0B5B5405EDB4D2D0376766\DWALOOKUPS.H.RULE
+setlocal
+Release\dwaLookups > E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/PBRT/src/ext/openexr/OpenEXR/IlmImf/dwaLookups.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\PROJECTS\GITHUB\CMP5359-CG-MILESTONES-20-21-JAMESPHILIPPRICE\CODE\PBRT\PBRT-V3_CLONE\SRC\EXT\OPENEXR\OPENEXR\ILMIMF\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/pbrt-v3_clone -BE:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/PBRT --check-stamp-file E:/Projects/Github/cmp5359-cg-milestones-20-21-JamesPhilipPrice/Code/PBRT/PBRT/src/ext/openexr/OpenEXR/IlmImf/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
