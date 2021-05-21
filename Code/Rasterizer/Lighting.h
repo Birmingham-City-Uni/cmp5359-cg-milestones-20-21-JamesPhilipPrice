@@ -22,7 +22,7 @@ public:
 	}
 
 	void AddDirLight(RGB _col, Vec3f _dir){
-		dirLights.push_back(new DirectionalLight(_col, _dir));
+		dirLights.push_back(new DirectionalLight(_col, _dir.normalize()));
 	}
 
 	RGB GetLightingFromScene(Vec3f _norm) {

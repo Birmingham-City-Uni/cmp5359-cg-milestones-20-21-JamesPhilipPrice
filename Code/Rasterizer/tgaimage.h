@@ -1,5 +1,5 @@
 #pragma once
-
+/* Sourced from module tutorial*/
 #include <fstream>
 
 #pragma pack(push,1)
@@ -91,3 +91,5 @@ public:
 	unsigned char *buffer();
 	void clear();
 };
+
+/* Code source stops*/

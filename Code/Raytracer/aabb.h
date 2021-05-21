@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-
+/*Sourced from module tutorials*/
 class AABB {
 public:
 	AABB() {}
@@ -39,3 +39,4 @@ AABB surrounding_box(AABB box0, AABB box1) {
 
 	return AABB(small, big);
 }
+/* Code source stops*/

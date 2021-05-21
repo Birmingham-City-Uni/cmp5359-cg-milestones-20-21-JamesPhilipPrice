@@ -1,5 +1,6 @@
 ﻿// A practical implementation of the ray tracing algorithm.
 
+/*Base code developed from module tutorials*/
 #include "Common.h"
 #include "Threadpool.h"
 #include "Hittable.h"
@@ -29,8 +30,8 @@ void init() {
         "Software Ray Tracer",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
-        1280,
-        720,
+        1920,
+        1080,
         0
     );
 
@@ -210,31 +211,68 @@ void LoadModelIntoHittable(Model* _mod, shared_ptr<Material> _mat, HittableList*
         const Vec3f v1 = _mod->Vert(_mod->Face(i)[1]);
         const Vec3f v2 = _mod->Vert(_mod->Face(i)[2]);
 
+        //UVs
+        const Vec2f vt0 = _mod->UV(_mod->Face(i)[3]);
+        const Vec2f vt1 = _mod->UV(_mod->Face(i)[4]);
+        const Vec2f vt2 = _mod->UV(_mod->Face(i)[5]);
+
         //Normals
         const Vec3f vn0 = _mod->Norm(_mod->Face(i)[6]);
         const Vec3f vn1 = _mod->Norm(_mod->Face(i)[7]);
         const Vec3f vn2 = _mod->Norm(_mod->Face(i)[8]);
 
         //Testing average norm calc
-        Vec3f fNorm = Vec3f((vn0.x + vn1.x + vn2.x) / 3.0f, (vn0.y + vn1.y + vn2.y) / 3.0f, (vn0.z + vn1.z + vn2.z) / 3.0f);
+        Vec3f fNorm = ((vn0 + vn1 + vn2) / 3.0f);
         //Vec3f fNorm = (v1 - v0).crossProduct(v2 - v0);
 
-        _hittable->Add(make_shared<Triangle>(v0 + _transform, v1 + _transform, v2 + _transform, fNorm, _mat));
+        _hittable->Add(make_shared<Triangle>(v0 + _transform, v1 + _transform, v2 + _transform, vn0, vn1, vn2, vt0, vt1, vt2, _mat));
     }
 }
 
 HittableList EvaScene() {
     HittableList world;
 
+    //Floor
+    Model* floor = new Model("Objects/floor.obj");
+    auto floorMat = make_shared<Metal>(make_shared<ImageTexture>("Textures/Floor.png"), 0.5);
+    LoadModelIntoHittable(floor, floorMat, &world, Vec3f(0, 0, 0));
+
+    //Evangellion
     Model* eva = new Model("Objects/eva.obj");
-    auto evaMat = make_shared<Lambertian>(Colour(0.8, 0.2, 0.8));
+    auto evaMat = make_shared<Lambertian>(make_shared<ImageTexture>("Textures/Eva/texture.png"));
     LoadModelIntoHittable(eva, evaMat, &world, Vec3f(0, 0, 0));
+
+    //Gunstore
     Model* gunstore = new Model("Objects/gunstore.obj");
-    auto gunstoreMat = make_shared<Metal>(Colour(0.2, 0.2, 0.8), 0.2);
+    auto gunstoreMat = make_shared<Metal>(make_shared<ImageTexture>("Textures/Gunstore/Gun_Store_Main_base.png"), 0.3);
     LoadModelIntoHittable(gunstore, gunstoreMat, &world, Vec3f(0, 0, 0));
+    Model* gunstoreLock = new Model("Objects/gunstore_lock.obj");
+    auto gunstoreLockMat = make_shared<Metal>(make_shared<ImageTexture>("Textures/Gunstore/Handle_base.png"), 0.3);
+    LoadModelIntoHittable(gunstoreLock, gunstoreLockMat, &world, Vec3f(0, 0, 0));
+    Model* gunstoreGlass = new Model("Objects/gunstore_glass.obj");
+    auto gunstoreGlassMat = make_shared<Dielectric>(1.5);
+    LoadModelIntoHittable(gunstoreGlass, gunstoreGlassMat, &world, Vec3f(0, 0, 0));
+    Model* gunstoreDomesGreen = new Model("Objects/gunstore_domes_green.obj");
+    auto gunstoreDomesGreenMat = make_shared<Lambertian>(Colour(0.0, 1.0, 0.0));
+    LoadModelIntoHittable(gunstoreDomesGreen, gunstoreDomesGreenMat, &world, Vec3f(0, 0, 0));
+    Model* gunstoreDomesRed = new Model("Objects/gunstore_domes_red.obj");
+    auto gunstoreDomesRedMat = make_shared<Lambertian>(Colour(1.0, 0.0, 0.0));
+    LoadModelIntoHittable(gunstoreDomesRed, gunstoreDomesRedMat, &world, Vec3f(0, 0, 0));
+
+    //StrangeStructures
+    Model* strangeOne = new Model("Objects/strange1.obj");
+    Model* strangeTwo = new Model("Objects/strange2.obj");
+    auto strangeMat = make_shared<Lambertian>(make_shared<ImageTexture>("Textures/Strange/wierd_base.png"));
+    LoadModelIntoHittable(strangeOne, strangeMat, &world, Vec3f(0, 0, 0));
+    LoadModelIntoHittable(strangeTwo, strangeMat, &world, Vec3f(0, 0, 0));
+
+    //Skyscraper
     Model* skyscraper = new Model("Objects/skyscraper.obj");
-    auto skyscraperMat = make_shared<Lambertian>(Colour(0.8, 0.2, 0.2));
+    auto skyscraperMat = make_shared<Lambertian>(make_shared<ImageTexture>("Textures/Skyscraper/skyscraper_base.png"));
     LoadModelIntoHittable(skyscraper, skyscraperMat, &world, Vec3f(0, 0, 0));
+    Model* skyscraperGlass = new Model("Objects/skyscraper_glass.obj");
+    auto skyscraperGlassMat = make_shared<Metal>(make_shared<ImageTexture>("Textures/Skyscraper/glass_base.png"), 0.0);
+    LoadModelIntoHittable(skyscraperGlass, skyscraperGlassMat, &world, Vec3f(0, 0, 0));
 
 
     //return world;
@@ -278,7 +316,7 @@ int main(int argc, char **argv)
     const int imageWidth = screen->w;
     const int imageHeight = screen->h;
     std::cout << "Image size:" << imageWidth << ", " << imageHeight << std::endl;
-    const int spp = 5;
+    const int spp = 1;
     const float scale = 1.f / spp;
     const int lightBounces = 3;
 
@@ -293,7 +331,7 @@ int main(int argc, char **argv)
     Vec3f vUp(0, 1, 0);
     auto distToFocus = 40;
     auto aperture = 0.15;
-    Camera cam(lookFrom, lookAt, vUp, 20, aspectRatio, aperture, distToFocus);
+    Camera cam(lookFrom, lookAt, vUp, 29.5, aspectRatio, aperture, distToFocus);
 
     //World setup
     auto world = EvaScene();

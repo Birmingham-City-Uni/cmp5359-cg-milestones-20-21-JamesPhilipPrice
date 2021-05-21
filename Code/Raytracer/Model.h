@@ -26,6 +26,7 @@ public:
 		}
 		fileIn.close();
 
+		/*v I actually wrote this model loading code myself, that's made obvious by the fact that it is painful to read v*/
 		for (int i = 0; i < fileBuffer.size(); i++) {
 			if (fileBuffer[i].substr(0, 2) == "v ") {
 				//This line contains vertex information

@@ -1,4 +1,5 @@
 #pragma once
+/* Sourced from module tutorials */
 #include "Common.h"
 #include "Hittable.h"
 #include "HittableList.h"
@@ -29,7 +30,7 @@ bool BVHNode::Hit(const Ray& _r, double _tMin, double _tMax, HitRecord& _rec) co
 		return false;
 	}
 	bool hitLeft = left->Hit(_r, _tMin, _tMax, _rec);
-	bool hitRight = right->Hit(_r, _tMin, _tMax, _rec);
+	bool hitRight = right->Hit(_r, _tMin, hitLeft ? _rec.t : _tMax, _rec);
 
 	return hitLeft || hitRight;
 }
@@ -96,3 +97,4 @@ BVHNode::BVHNode(const std::vector<shared_ptr<Hittable>>& _srcObjects, size_t _s
 	}
 	box = surrounding_box(boxLeft, boxRight);
 }
+/*Code source stops*/

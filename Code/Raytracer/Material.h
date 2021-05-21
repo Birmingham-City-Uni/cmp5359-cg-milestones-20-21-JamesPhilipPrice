@@ -1,8 +1,10 @@
 #pragma once
-
+/* Starter code made with module tutorials */
+/* Improvements sourced from Peter Shirley's Ray Tracing The next week: https://raytracing.github.io/books/RayTracingTheNextWeek.html */
 #include "Common.h"
 #include "geometry.h"
 #include "Hittable.h"
+#include "texture.h"
 
 struct HitRecord;
 
@@ -26,7 +28,8 @@ public:
 
 class Lambertian : public Material {
 public:
-	Lambertian(const Colour& _a) : albedo(_a) {}
+	Lambertian(const Colour& _a) : albedo(make_shared<SolidColour>(_a)) {}
+	Lambertian(shared_ptr<Texture> _a) : albedo(_a) {}
 
 	virtual bool Scatter(
 		const Ray& _rIn, const HitRecord& _rec, Colour& _attenuation, Ray& _scattered
@@ -37,7 +40,8 @@ public:
 			scatterDirection = _rec.normal;
 		}
 		_scattered = Ray(_rec.p, scatterDirection);
-		_attenuation = albedo;
+		_attenuation = albedo->value(_rec.u, _rec.v, _rec.p);
+		
 		return true;
 	}
 
@@ -46,24 +50,25 @@ public:
 	}
 
 private:
-	Colour albedo;
+	shared_ptr<Texture> albedo;
 };
 
 class Metal : public Material {
 public:
-	Metal(const Colour& _a, double _f) : albedo(_a), fuzz(_f < 1 ? _f : 1){}
+	Metal(const Colour& _a, double _f) : albedo(make_shared<SolidColour>(_a)), fuzz(_f < 1 ? _f : 1){}
+	Metal(shared_ptr<Texture> _a, double _f) : albedo(_a), fuzz(_f < 1 ? _f : 1){}
 
 	virtual bool Scatter(
 		const Ray& _rIn, const HitRecord& _rec, Colour& _attenuation, Ray& _scattered
 	) const override {
 		Vec3f reflected = Reflect(_rIn.Direction().normalize(), _rec.normal);
 		_scattered = Ray(_rec.p, reflected + fuzz * Vec3f().RandomInUnitSphere());
-		_attenuation = albedo;
+		_attenuation = albedo->value(_rec.u, _rec.v, _rec.p);
 		return (_scattered.Direction().dotProduct(_rec.normal) > 0);
 	}
 
 private:
-	Colour albedo;
+	shared_ptr<Texture> albedo;
 	double fuzz;
 };
 
@@ -105,3 +110,4 @@ private:
 		return r0 + (1 - r0) * pow((1 - _cosine), 5);
 	}
 };
+/* Code source stops here*/

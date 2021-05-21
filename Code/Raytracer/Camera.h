@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-
+/* Sourced from module tutorials */
 class Camera {
 public:
 	Camera(Point3f _lookFrom, Point3f _lookAt, Vec3f _vUp, double _vFOV, double _aspectRatio, double _aperture, double _focusDist) {

@@ -1,6 +1,8 @@
 #pragma once
 #include <SDL.h>
 #include <SDL_image.h>
+#include <cmath>
+#include <algorithm>
 
 struct RGB {
     float r, g, b;
@@ -33,6 +35,12 @@ struct RGB {
 
     RGB operator / (float _v) {
         return RGB(r / _v, g / _v, b / _v);
+    }
+
+    void LerpTowards(RGB _col, float _t) {
+        r = r + _t * (_col.r - r);
+        g = g + _t * (_col.g - g);
+        b = b + _t * (_col.b - b);
     }
 };
 

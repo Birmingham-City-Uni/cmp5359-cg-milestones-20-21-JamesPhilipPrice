@@ -1,5 +1,5 @@
 #pragma once
-
+/* Sourced from module tutorials */
 #include "geometry.h"
 
 class Ray {
@@ -18,3 +18,4 @@ public:
 	Point3f origin;
 	Vec3f direction;
 };
+/* Code source stops */

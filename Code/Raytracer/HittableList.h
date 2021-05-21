@@ -1,5 +1,5 @@
 #pragma once
-
+/* Developed from module tutorials */
 #include "Hittable.h"
 #include <memory>
 #include <vector>

@@ -1,5 +1,7 @@
 #pragma once
 
+/*Sourced from module tutorials and modified to accomodate vertex normals*/
+
 #include <vector>
 #include "geometry.h"
 
@@ -20,3 +22,4 @@ public:
 	std::vector<int> face(int idx);
 };
 
+/* Code source stops*/

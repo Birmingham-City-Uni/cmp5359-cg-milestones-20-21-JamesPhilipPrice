@@ -1,0 +1,57 @@
+﻿  rasteriser.cpp
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(13,1): warning C4005: 'M_PI': macro redefinition
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\SDL2-2.0.14\include\SDL_stdinc.h(518): message : see previous definition of 'M_PI'
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(15,35): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(38,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(121,157): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(128,32): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(129,33): warning C4305: 'initializing': truncation from 'double' to 'float'
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(379,48): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(389,95): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(389,82): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(389,69): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(397,36): warning C4018: '<': signed/unsigned mismatch
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(455,54): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(455,45): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(511,78): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=unsigned char
+          ]
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(512,78): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=unsigned char
+          ]
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(513,78): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=unsigned char
+          ]
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(522,56): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(523,56): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(529,138): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(529,116): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\rasteriser.cpp(529,94): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+  Generating code
+  1 of 588 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SoftwareRasteriser.vcxproj -> E:\Projects\Github\cmp5359-cg-milestones-20-21-JamesPhilipPrice\Code\Rasterizer\x64\Release\SoftwareRasteriser.exe

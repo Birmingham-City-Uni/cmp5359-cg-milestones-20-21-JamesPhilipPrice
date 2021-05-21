@@ -11,6 +11,17 @@ public:
 	virtual bool Hit(const Ray& _r, double _tMin, double _tMax, HitRecord& _rec) const override;
 	virtual bool bounding_box(AABB& _outputBox) const override;
 
+private:
+
+	/*Sourced from Peter Shirley's Ray Tracing the next week: https://raytracing.github.io/books/RayTracingTheNextWeek.html */
+	static void GetSphereUV(const Point3f& _p, double& _u, double& _v) {
+		auto theta = acos(-_p.y);
+		auto phi = atan2(-_p.z, _p.x) + pi;
+
+		_u = phi / (2 * pi);
+		_v = theta / pi;
+	}
+	/* Code source stops*/
 public:
 	Point3f centre;
 	double radius;
@@ -39,6 +50,7 @@ bool Sphere::Hit(const Ray& _r, double _tMin, double _tMax, HitRecord& _rec) con
 	_rec.p = _r.At(_rec.t);
 	Vec3f outwardNormal = (_rec.p - centre) / radius;
 	_rec.SetFaceNormal(_r, outwardNormal);
+	GetSphereUV(outwardNormal, _rec.u, _rec.v);
 	_rec.matPtr = materialPtr;
 	return true;
 }

@@ -1,0 +1,12 @@
+# Blender MTL File: 'WhiteboxTwo1.blend'
+# Material Count: 1
+
+newmtl Dome_Green
+Ns 704.661142
+Ka 0.106061 0.106061 0.106061
+Kd 0.000000 0.800000 0.008127
+Ks 0.560606 0.560606 0.560606
+Ke 0.000000 0.500000 0.004925
+Ni 0.000000
+d 1.000000
+illum 3

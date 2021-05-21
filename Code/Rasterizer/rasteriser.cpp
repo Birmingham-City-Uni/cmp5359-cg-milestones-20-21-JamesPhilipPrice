@@ -1,5 +1,7 @@
 // A practical implementation of the rasterization algorithm.
 
+/* Starter code sourced from module tutorial for editing*/
+
 #include "geometry.h"
 #include "SDL.h" 
 #include "model.h"
@@ -107,17 +109,22 @@ void convertToRaster(
     vertexRaster.z = -vertexCamera.z;
 }
 
+//Gets the minimum of three floats
 float min3(const float &a, const float &b, const float &c)
 { return std::min(a, std::min(b, c)); }
 
+//Gets the maximum of three floats
 float max3(const float &a, const float &b, const float &c)
 { return std::max(a, std::max(b, c)); }
 
+//Gets a weighting for barycentric coordinates (output needs to be divided by triangle area)
 float edgeFunction(const Vec3f &a, const Vec3f &b, const Vec3f &c)
 { return (c[0] - a[0]) * (b[1] - a[1]) - (c[1] - a[1]) * (b[0] - a[0]); }
 
-const uint32_t imageWidth = 1280;
-const uint32_t imageHeight = 720;
+//Define image dimensions
+const uint32_t imageWidth = 1920;
+const uint32_t imageHeight = 1080;
+
 Matrix44f worldToCamera = {0.707107, -0.331295, 0.624695, 0, 0, 0.883452, 0.468521, 0, -0.707107, -0.331295, 0.624695, 0, -1.63871, -5.747777, -40.400412, 1};
 
 uint32_t ntris = 3156;
@@ -128,6 +135,7 @@ float focalLength = 36; // in mm
 float filmApertureWidth = 0.980;
 float filmApertureHeight = 0.735;
 
+//Initialise an SDL_Window and create a surface to draw to
 SDL_Window* window;
 SDL_Renderer* renderer;
 SDL_Surface* screen;
@@ -188,6 +196,8 @@ TGAColor getpixel(SDL_Surface* surface, int x, int y)
     }
 }
 
+
+//Put the pixel on the screen surface at position x and y
 void putpixel(SDL_Surface* surface, int x, int y, Uint32 pixel)
 {
     int bpp = surface->format->BytesPerPixel;
@@ -279,10 +289,9 @@ Matrix44f lookAt(const Vec3f from, const Vec3f to, const Vec3f _tmp = Vec3f(0, 1
     return camToWorld;
 }
 
+//Holds all of the objects and textures to be rendered
 std::vector<Model*> renderables;
-std::vector<Model*> renderables2;
 std::vector<Texture*> textures;
-std::vector<Texture*> textures2;
 
 //Model* model = nullptr;
 
@@ -311,9 +320,14 @@ int main(int argc, char **argv)
         textures.push_back(new Texture("Textures/Floor.png"));
     }
 
+    //Holds all of the light definitions for the scene
     LightSystem* lights = new LightSystem();
-    lights->SetAmbientLight(RGB(0.1f, 0.1f, 0.1f));
-    lights->AddDirLight(RGB(1.0f, 1.0f, 1.0f), Vec3f(1, 0, 0));
+    lights->SetAmbientLight(RGB(0.3f, 0.3f, 0.3f));
+    lights->AddDirLight(RGB(1.0f, 0.98f, 0.96f), Vec3f(1, 1, 0));
+
+    //Define fog
+    RGB fogColour(100, 100, 100);
+    float fogFullDesityDistance = 900.0f;
 
     //ntris = model->nverts();
 
@@ -345,7 +359,7 @@ int main(int argc, char **argv)
     SDL_Event e;
     bool running = true;
 
-    int spp = 5;
+    //The exportable image
     TGAImage* exportImage = new TGAImage(imageWidth, imageHeight, TGAImage::RGB);
     while (running) {
 
@@ -376,6 +390,16 @@ int main(int argc, char **argv)
         Vec3f up(0.f, 1.f, 0.f);
         worldToCamera = lookAt(eye, target, up).inverse(); //cameraToWorld needs to be inverted for worldToCamera
         //worldToCamera[3][2] += 0.1f;
+
+        //Set background to fog colour
+        for (int y = 0; y < imageHeight; y++) {
+            for (int x = 0; x < imageWidth; x++) {
+                exportImage->set(x, y, TGAColor((unsigned char)fogColour.r, (unsigned char)fogColour.g, (unsigned char)fogColour.b, (unsigned char)1));
+
+                Uint32 colour = SDL_MapRGB(screen->format, fogColour.r, fogColour.g, fogColour.b);
+                putpixel(screen, x, y, colour);
+            }
+        }
 
         // Outer loop
         int textureIndex = 0;
@@ -500,8 +524,15 @@ int main(int argc, char **argv)
 
                                 //Uint32 colour = SDL_MapRGB(screen->format, nDotView * 255, nDotView * 255, nDotView * 255);
                                 RGB texturePixelColour = textures[textureIndex]->GetPixelFromUV(st.x, 1 - st.y);
-                                RGB lighting = lights->GetLightingFromScene(sn);
+                                RGB lighting = lights->GetLightingFromScene(n);
                                 texturePixelColour *= (lighting);
+
+                                //Calculate fog
+                                float fogDensityAmount = z / fogFullDesityDistance;
+                                fogDensityAmount = fmin(fogDensityAmount, 1.0);
+                                fogDensityAmount = fmax(0.0, fogDensityAmount);
+                                texturePixelColour.LerpTowards(fogColour, fogDensityAmount);
+
                                 //Write to export image
                                 exportImage->set(x, y, TGAColor((unsigned char)texturePixelColour.r, (unsigned char)texturePixelColour.g, (unsigned char)texturePixelColour.b, (unsigned char)1));
 
@@ -561,3 +592,5 @@ int main(int argc, char **argv)
 
     return 0;
 }
+
+/* Starter code sourcing stops */

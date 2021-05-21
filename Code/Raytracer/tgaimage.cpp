@@ -1,3 +1,4 @@
+/* Sourced from module tutorials*/
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -349,4 +350,4 @@ bool TGAImage::scale(int w, int h) {
 	height = h;
 	return true;
 }
-
+/* Code source stops*/

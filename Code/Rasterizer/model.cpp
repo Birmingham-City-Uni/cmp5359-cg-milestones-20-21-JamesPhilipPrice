@@ -1,3 +1,4 @@
+/*Sourced from module tutorials and modified to accomodate vertex normals*/
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -31,7 +32,6 @@ Model::Model(const char *filename) : verts_(), faces_() {
             iss >> trash;
             Vec3f vn;
             for (int i = 0; i < 3; i++) iss >> vn[i];
-            std::cout << vn.x << " " << vn.y << " " << vn.z << std::endl;
             vns_.push_back(vn);
         }
         else if (!line.compare(0, 2, "f ")) { // f v1/vt1/vn1 v2/vt2/vn2 v3/vt3/vn3 ... making assumption v1==vt1 etc.
@@ -80,3 +80,4 @@ Vec3f Model::vn(int i)
     return vns_[i];
 }
 
+/* Code source stops*/
