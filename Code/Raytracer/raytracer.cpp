@@ -316,9 +316,9 @@ int main(int argc, char **argv)
     const int imageWidth = screen->w;
     const int imageHeight = screen->h;
     std::cout << "Image size:" << imageWidth << ", " << imageHeight << std::endl;
-    const int spp = 1;
+    const int spp = 5;
     const float scale = 1.f / spp;
-    const int lightBounces = 3;
+    const int lightBounces = 10;
 
     //Camera values
     //For testmodel scene
@@ -329,7 +329,7 @@ int main(int argc, char **argv)
     Point3f lookFrom(124.726, 62.9513, 0.0346);
     Point3f lookAt(111.86, 62.8965, 4.3578);
     Vec3f vUp(0, 1, 0);
-    auto distToFocus = 40;
+    auto distToFocus = 50;
     auto aperture = 0.15;
     Camera cam(lookFrom, lookAt, vUp, 29.5, aspectRatio, aperture, distToFocus);
 
