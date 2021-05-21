@@ -312,22 +312,26 @@ int main(int argc, char **argv)
         textures.push_back(new Texture("Textures/Gunstore/Gun_Store_Main_base.png"));
         renderables.push_back(new Model("Objects/gunstore_lock.obj"));
         textures.push_back(new Texture("Textures/Gunstore/Handle_base.png"));
+        renderables.push_back(new Model("Objects/gunstore_domes_green.obj"));
+        textures.push_back(new Texture("Textures/Gunstore/dome_green.png"));
+        renderables.push_back(new Model("Objects/gunstore_domes_red.obj"));
+        textures.push_back(new Texture("Textures/Gunstore/dome_red.png"));
+        renderables.push_back(new Model("Objects/gunstore_glass.obj"));
+        textures.push_back(new Texture("Textures/Gunstore/gunstore_glass.png"));
         renderables.push_back(new Model("Objects/strange1.obj"));
         textures.push_back(new Texture("Textures/Strange/wierd_base.png"));
-        //renderables.push_back(new Model("Objects/angle.obj"));
-        //textures.push_back(new Texture("Textures/AngleBuilding/Back_Building.png"));
         renderables.push_back(new Model("Objects/floor.obj"));
         textures.push_back(new Texture("Textures/Floor.png"));
     }
 
     //Holds all of the light definitions for the scene
     LightSystem* lights = new LightSystem();
-    lights->SetAmbientLight(RGB(0.3f, 0.3f, 0.3f));
+    lights->SetAmbientLight(RGB(0.25f, 0.25f, 0.25f));
     lights->AddDirLight(RGB(1.0f, 0.98f, 0.96f), Vec3f(1, 1, 0));
 
     //Define fog
-    RGB fogColour(100, 100, 100);
-    float fogFullDesityDistance = 900.0f;
+    RGB fogColour(10, 50, 70);
+    float fogFullDesityDistance = 700.0f;
 
     //ntris = model->nverts();
 
@@ -528,7 +532,7 @@ int main(int argc, char **argv)
                                 texturePixelColour *= (lighting);
 
                                 //Calculate fog
-                                float fogDensityAmount = z / fogFullDesityDistance;
+                                float fogDensityAmount = (z / fogFullDesityDistance);
                                 fogDensityAmount = fmin(fogDensityAmount, 1.0);
                                 fogDensityAmount = fmax(0.0, fogDensityAmount);
                                 texturePixelColour.LerpTowards(fogColour, fogDensityAmount);

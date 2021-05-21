@@ -50,3 +50,26 @@ I haven't implemented normals for shading yet and will work towards implementing
 ## 31/03/21 - Implemented very basic texture system (with faults: no UV mapping)
 I still need to implement UV controlled texturing. At the moment the models are only textured using a single pixel of a texture, to prove as proof of concept that the texturing works.
 <img src="Documentation_assets/TextureTest.png?raw=true"/>
+
+## 13/04/21 - Improvements to the UV mapping of models
+I have managed to make some headroom with the uv mapping and have tested the models with a UV checker map and I do have some form of UV mapping in place but there are issues, as the image shows:
+<img src="Documentation_assets/UV_WithBug.png?raw=true"/>
+
+## 23/04/21 - Worked on barycentric coodinates
+I think that the issue is the way I was gettin the correct UV for the inividual points on the triangles so I have started the implement barycentric coodinates to fix the issues.
+
+## 30/04/21 - Changing the triangle rendering
+Originally I was using a method of rendering triangles that revolved around running through scanlines but that doesn't work well with barycentric coordinates so I started the switch to bounding box method of drawing triangles
+
+## 07/05/21 - May have to resart the rasterizer
+Looking through the code with Carlo trying to find bugs, it became clear that I will probably need to restart the rasterizer and base it more off of the tutorial starter code. It's unfortunate that so much time goes down the drain but I think in the long run it'll probably be for the best.
+
+## 12/05/21 - The All-nighter
+I managed to pull an all nighter to work on both the rasterizer and the raytracer and had started them both again from the tutorial starter code so I can build upon that and already I'm seeing a good improvement in the rasterizing and I have a decent amount of progress in the ray tracer.
+
+## 14/05/21 - Made some changes the rasterizer scene
+These changes won't affect the image output from the project, but they do fix bugs that were causing artifacts on the screen and now the rasterizer can start to have the full scene bult into it
+
+## 20/05/21 - Made large amounts or progress on the ray tracer and rasterizer
+I have implemented all of the code from the tutorial and have implemented some extras from Peter Shirley's guides on ray tracing as well as built up the scenes from both renderers.
+The rasterizer has had a few extra features implemented into it.
